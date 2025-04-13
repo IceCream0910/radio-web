@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import RegionStationList from './components/regionStationList';
 import FavoriteStationList from './components/favoriteStationList';
+import dynamic from 'next/dynamic';
+
+const AdSense = dynamic(() => import('./components/adSense'), { ssr: false });
 
 const FavoritesPage = () => {
     useEffect(() => {
@@ -34,14 +37,12 @@ const FavoritesPage = () => {
                     <h2 style={{ width: '100%', textAlign: 'left', marginTop: '10px', marginLeft: '13px' }}>자주 듣는</h2>                </header>
 
                 <div style={{ height: 'var(--header-bottom-margin)' }} />
-                <div className="adfit" />
-                <ins class="adsbygoogle"
-                    style={{ display: 'block' }}
-                    data-ad-client="ca-pub-7178712602934912"
-                    data-ad-slot="8415533910"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
+                <div style={{ width: '100%', height: '50px', maxHeight: '50px', display: 'flex', justifyContent: 'center' }}>
+                    <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
+                </div>
                 <FavoriteStationList />
+                <div className="adfit" />
+
             </main>
         </div>
     );
