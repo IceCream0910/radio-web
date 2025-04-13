@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import RegionStationList from './components/regionStationList';
 import IonIcon from '@reacticons/ionicons';
+import dynamic from 'next/dynamic';
+
+const AdSense = dynamic(() => import('./components/adSense'), { ssr: false });
 
 const IndexPage = () => {
   const [region, setRegion] = useState('seoul');
@@ -80,16 +83,13 @@ const IndexPage = () => {
 
         <div style={{ height: 'var(--main-header-bottom-margin)' }} />
 
-        <div className='adfit1' />
-
-        <ins class="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-7178712602934912"
-          data-ad-slot="8415533910"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
+        <div style={{ width: '100%', height: '50px', maxHeight: '50px', display: 'flex', justifyContent: 'center' }}>
+          <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
+        </div>
 
         <RegionStationList region={region} />
+
+        <div className='adfit1' />
 
       </main>
       <style jsx>{`
