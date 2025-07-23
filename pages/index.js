@@ -89,7 +89,6 @@ const IndexPage = () => {
 
         <RegionStationList region={region} />
 
-        <div className='adfit1' />
 
       </main>
       <style jsx>{`
