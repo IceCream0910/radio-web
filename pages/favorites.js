@@ -41,7 +41,7 @@ const FavoritesPage = () => {
                     <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
                 </div>
                 <FavoriteStationList />
-                <div className="adfit" />
+                
 
             </main>
         </div>
