@@ -1,7 +1,33 @@
+import cache from '../../../lib/cache.js';
+import rateLimiter from '../../../lib/rateLimiter.js';
+
 export default async function handler(req, res) {
     const { stn, ch, city } = req.query;
+    
+    // Rate limiting 체크
+    const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+    if (!rateLimiter.isAllowed(clientIP, 60, 60000)) {
+        return res.status(429).json({ 
+            error: 'Too many requests',
+            title: ''
+        });
+    }
+    
+    // Cache-Control 헤더 설정 (30초)
+    res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate=60');
+    
+    // 캐시 키 생성
+    const cacheKey = `program_${stn}_${ch}_${city || 'default'}`;
+    
+    // 캐시에서 먼저 확인
+    const cachedResult = cache.get(cacheKey);
+    if (cachedResult) {
+        return res.status(200).json(cachedResult);
+    }
 
     let result;
+    
+    try {
 
     if (stn == 'mbc') {
         const response = await fetch(`https://miniapi.imbc.com/Schedule/schedulelist`);
@@ -36,9 +62,15 @@ export default async function handler(req, res) {
 
         if (result.length > 0) {
             const title = result[0].ProgramTitle;
-            res.status(200).json({ title: title });
+            const responseData = { title: title };
+            // 캐시에 저장 (30초 TTL)
+            cache.set(cacheKey, responseData, 30000);
+            res.status(200).json(responseData);
         } else {
-            res.status(200).json({ title: '' });
+            const responseData = { title: '' };
+            // 빈 결과도 짧게 캐시 (10초 TTL)
+            cache.set(cacheKey, responseData, 10000);
+            res.status(200).json(responseData);
         }
     }
 
@@ -65,7 +97,10 @@ export default async function handler(req, res) {
         });
 
         const title = result[0].title;
-        res.status(200).json({ title: title });
+        const responseData = { title: title };
+        // 캐시에 저장 (30초 TTL)
+        cache.set(cacheKey, responseData, 30000);
+        res.status(200).json(responseData);
 
     }
 
@@ -153,7 +188,17 @@ export default async function handler(req, res) {
             const data = JSON.parse(text.replace(`/**/ typeof mf_global_now_schedule === 'function' && mf_global_now_schedule(`, '').slice(0, -2));
 
             const title = data[0].schedules[0].program_title;
-            res.status(200).json({ title: title });
+            const responseData = { title: title };
+            // 캐시에 저장 (30초 TTL)
+            cache.set(cacheKey, responseData, 30000);
+            res.status(200).json(responseData);
         }
+    }
+    } catch (error) {
+        console.error('Error fetching program data:', error);
+        const errorResponse = { title: '', error: 'Failed to fetch program data' };
+        // 에러 결과도 짧게 캐시하여 반복 요청 방지
+        cache.set(cacheKey, errorResponse, 5000);
+        res.status(200).json(errorResponse);
     }
 }
