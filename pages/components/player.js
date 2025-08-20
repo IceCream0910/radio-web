@@ -15,6 +15,7 @@ const HlsPlayer = forwardRef((props, ref) => {
     const [actualFavorites, setActualFavorites] = useState([])
 
     const videoRef = useRef(null);
+    const audioRef = useRef(null);
     const [isReady, setIsReady] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -26,7 +27,7 @@ const HlsPlayer = forwardRef((props, ref) => {
     const [currentSong, setCurrentSong] = useState('');
     const intervalSongFetch = useRef(null);
     const intervalProgramFetch = useRef(null);
-    
+
     const [songFetchInterval, setSongFetchInterval] = useState(15000);
     const [programFetchInterval, setProgramFetchInterval] = useState(60000);
     const lastSongData = useRef('');
@@ -109,7 +110,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                         });
                         const data = await response.json();
                         const newSong = data.song ? '♬ ' + data.song : '';
-                        
+
                         if (newSong !== lastSongData.current) {
                             lastSongData.current = newSong;
                             setCurrentSong(newSong);
@@ -120,11 +121,11 @@ const HlsPlayer = forwardRef((props, ref) => {
                     }
                 };
                 fetchSongData();
-                
+
                 // 폴링 재시작
                 intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
             }
-            
+
             if (player.program) {
                 const fetchProgramData = async () => {
                     try {
@@ -134,12 +135,12 @@ const HlsPlayer = forwardRef((props, ref) => {
                             }
                         });
                         const data = await response.json();
-                        
+
                         if (data.title && data.title !== lastProgramData.current) {
                             lastProgramData.current = data.title;
                             setCurrentProgram(data.title);
                             randomBackground();
-                            
+
                             if ('mediaSession' in navigator) {
                                 navigator.mediaSession.metadata = new MediaMetadata({
                                     title: data.title || '제목없음',
@@ -157,7 +158,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                     }
                 };
                 fetchProgramData();
-                
+
                 // 폴링 재시작
                 intervalProgramFetch.current = setInterval(fetchProgramData, programFetchInterval);
             }
@@ -216,7 +217,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                             });
                             const data = await response.json();
                             const newSong = data.song ? '♬ ' + data.song : '';
-                            
+
                             if (newSong !== lastSongData.current) {
                                 lastSongData.current = newSong;
                                 setCurrentSong(newSong);
@@ -229,7 +230,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                     fetchSongData();
                     intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
                 }
-                
+
                 if (player.program) {
                     const fetchProgramData = async () => {
                         try {
@@ -239,12 +240,12 @@ const HlsPlayer = forwardRef((props, ref) => {
                                 }
                             });
                             const data = await response.json();
-                            
+
                             if (data.title && data.title !== lastProgramData.current) {
                                 lastProgramData.current = data.title;
                                 setCurrentProgram(data.title);
                                 randomBackground();
-                                
+
                                 if ('mediaSession' in navigator) {
                                     navigator.mediaSession.metadata = new MediaMetadata({
                                         title: data.title || '제목없음',
@@ -310,21 +311,21 @@ const HlsPlayer = forwardRef((props, ref) => {
             randomBackground();
             setCurrentProgram('');
             setCurrentSong('');
-            
+
             // 스마트 폴링 초기화
             consecutiveNoChangeCount.current = { song: 0, program: 0 };
             setSongFetchInterval(15000);
             setProgramFetchInterval(60000);
-            
+
             // 이전 URL 업데이트
             previousPlayerUrl.current = player.url;
         }
-        
+
         // 포커스가 없으면 폴링하지 않음
         if (!isFocusing) {
             return;
         }
-        
+
         if (player.song) {
             const fetchSongData = async () => {
                 try {
@@ -335,7 +336,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                     });
                     const data = await response.json();
                     const newSong = data.song ? '♬ ' + data.song : '';
-                    
+
                     // 데이터 변경 감지 및 스마트 폴링 조정
                     if (newSong === lastSongData.current) {
                         consecutiveNoChangeCount.current.song++;
@@ -348,7 +349,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                         setSongFetchInterval(15000); // 변화가 있으면 다시 기본 간격으로
                         randomBackground(); // 곡이 변경될 때만 배경 업데이트
                     }
-                    
+
                     lastSongData.current = newSong;
                     setCurrentSong(newSong);
                 } catch (error) {
@@ -357,14 +358,14 @@ const HlsPlayer = forwardRef((props, ref) => {
                     setSongFetchInterval(prev => Math.min(prev + 5000, 30000));
                 }
             };
-            
+
             fetchSongData();
-            
+
             intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
-        } else { 
+        } else {
             setCurrentSong('');
         }
-        
+
         if (player.program) {
             const fetchProgramData = async () => {
                 try {
@@ -388,10 +389,10 @@ const HlsPlayer = forwardRef((props, ref) => {
                             setProgramFetchInterval(60000); // 변화가 있으면 다시 기본 간격으로
                             randomBackground(); // 프로그램이 변경될 때만 배경 업데이트
                         }
-                        
+
                         lastProgramData.current = data.title;
                         setCurrentProgram(data.title);
-                        
+
                         if ('mediaSession' in navigator) {
                             navigator.mediaSession.metadata = new MediaMetadata({
                                 title: data.title || '제목없음',
@@ -414,15 +415,14 @@ const HlsPlayer = forwardRef((props, ref) => {
             };
 
             fetchProgramData();
-            
+
             intervalProgramFetch.current = setInterval(fetchProgramData, programFetchInterval);
-        } else { 
+        } else {
             setCurrentProgram('');
         }
 
 
         if (isNative.current && player.url) {
-
             try {
                 Native.play(player.url, player.title || "제목없음");
                 setIsPlaying(true);
@@ -430,13 +430,34 @@ const HlsPlayer = forwardRef((props, ref) => {
                 console.log("native error:", error)
             }
         } else {
-            if (Hls.isSupported() && player) {
-                const video = videoRef.current;
-                const hls = new Hls();
+            if (Hls.isSupported() && player.url) {
 
-                if (player && player.url) {
-                    hls.loadSource(player.url.trim());
-                    hls.attachMedia(video);
+
+                console.log(player.url.toLowerCase())
+                if (player.url.toLowerCase().endsWith(".acc")) {
+                    audioRef.current.src = player.url;
+                    audioRef.current.play();
+                    console.log(audioRef.current);
+
+                    if ('mediaSession' in navigator) {
+                        navigator.mediaSession.metadata = new MediaMetadata({
+                            title: player.title || '제목없음',
+                            artist: '라디오 스트리밍 중',
+                            artwork: [{
+                                src: "/albumart.png",
+                                sizes: "500x500",
+                                type: "image/png",
+                            }]
+                        });
+                    }
+                } else {
+                    const video = videoRef.current;
+                    const hls = new Hls();
+
+                    if (player && player.url) {
+                        hls.loadSource(player.url.trim());
+                        hls.attachMedia(video);
+                    }
 
                     video.addEventListener('canplaythrough', () => {
                         video.play();
@@ -454,13 +475,14 @@ const HlsPlayer = forwardRef((props, ref) => {
                             }]
                         });
                     }
-                }
 
-                return () => {
-                    hls.destroy();
-                };
+                    return () => {
+                        hls.destroy();
+                    };
+                }
             }
         }
+
 
         return () => {
             if (intervalSongFetch.current) {
@@ -476,7 +498,7 @@ const HlsPlayer = forwardRef((props, ref) => {
     useEffect(() => {
         if (player.song && isFocusing && intervalSongFetch.current) {
             clearInterval(intervalSongFetch.current);
-            
+
             const fetchSongData = async () => {
                 try {
                     const response = await fetch(player.song, {
@@ -486,7 +508,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                     });
                     const data = await response.json();
                     const newSong = data.song ? '♬ ' + data.song : '';
-                    
+
                     if (newSong === lastSongData.current) {
                         consecutiveNoChangeCount.current.song++;
                         if (consecutiveNoChangeCount.current.song >= 3) {
@@ -497,7 +519,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                         setSongFetchInterval(15000);
                         randomBackground();
                     }
-                    
+
                     lastSongData.current = newSong;
                     setCurrentSong(newSong);
                 } catch (error) {
@@ -505,7 +527,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                     setSongFetchInterval(prev => Math.min(prev + 5000, 30000));
                 }
             };
-            
+
             intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
         }
     }, [songFetchInterval]);
@@ -514,7 +536,7 @@ const HlsPlayer = forwardRef((props, ref) => {
     useEffect(() => {
         if (player.program && isFocusing && intervalProgramFetch.current) {
             clearInterval(intervalProgramFetch.current);
-            
+
             const fetchProgramData = async () => {
                 try {
                     const response = await fetch(player.program, {
@@ -535,10 +557,10 @@ const HlsPlayer = forwardRef((props, ref) => {
                             setProgramFetchInterval(60000);
                             randomBackground();
                         }
-                        
+
                         lastProgramData.current = data.title;
                         setCurrentProgram(data.title);
-                        
+
                         if ('mediaSession' in navigator) {
                             navigator.mediaSession.metadata = new MediaMetadata({
                                 title: data.title || '제목없음',
@@ -583,11 +605,12 @@ const HlsPlayer = forwardRef((props, ref) => {
     }
 
     useEffect(() => {
-        if (videoRef.current && !isNative.current) {
+        if (videoRef.current && audioRef.current && !isNative.current) {
             if (isPlaying) {
                 replay();
             } else {
                 videoRef.current.pause();
+                audioRef.current.pause();
             }
         }
     }, [isPlaying]);
@@ -759,6 +782,8 @@ const HlsPlayer = forwardRef((props, ref) => {
 
                 <video autoPlay style={{ display: 'none' }}
                     ref={videoRef} />
+                <audio autoPlay style={{ display: 'none' }} ref={audioRef} crossOrigin="anonymous"
+                    playsInline></audio>
             </div>
 
         </SwipeableBottomSheet>}

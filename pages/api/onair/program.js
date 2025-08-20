@@ -4,7 +4,6 @@ import rateLimiter from '../../../lib/rateLimiter.js';
 export default async function handler(req, res) {
     const { stn, ch, city } = req.query;
     
-    // Rate limiting 체크
     const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
     if (!rateLimiter.isAllowed(clientIP, 60, 60000)) {
         return res.status(429).json({ 
@@ -13,13 +12,10 @@ export default async function handler(req, res) {
         });
     }
     
-    // Cache-Control 헤더 설정 (30초)
     res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate=60');
     
-    // 캐시 키 생성
     const cacheKey = `program_${stn}_${ch}_${city || 'default'}`;
     
-    // 캐시에서 먼저 확인
     const cachedResult = cache.get(cacheKey);
     if (cachedResult) {
         return res.status(200).json(cachedResult);

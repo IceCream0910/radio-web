@@ -141,7 +141,7 @@ export default async function handler(req, res) {
                         title = '안동MBC';
                         break;
                     case 'pohang':
-                        result = "http://stream.yubinet.com:1935/live/_definst_/Radio_Am/playlist.m3u8";
+                        result = "https://stream.yubinet.com:1935/live/_definst_/Radio_Am/playlist.m3u8";
                         title = '포항MBC';
                         break;
                     case 'gwangju':
@@ -593,24 +593,6 @@ export default async function handler(req, res) {
         }
     }
 
-    //afn
-    if (stn == 'afn') {
-        switch (city) {
-            case 'kunsan':
-                result = "https://25433.live.streamtheworld.com/AFNP_KSNAAC.aac";
-                title = 'AFN Go Kunsan';
-                break;
-            case 'daegu':
-                result = "https://19263.live.streamtheworld.com/AFNP_DGUAAC.aac";
-                title = 'AFN Go Daegu';
-                break;
-            default:
-                result = "https://13743.live.streamtheworld.com/AFNP_OSNAAC.aac";
-                title = 'AFN Go Humphreys';
-                break;
-        }
-    }
-
     //tbs
     if (stn == 'tbs') {
         switch (ch) {
@@ -627,37 +609,48 @@ export default async function handler(req, res) {
         }
     }
 
-    /*----- EBS 라디오 -----*/
+    if (stn == 'afn') {
+        switch (ch) {
+            case 'humphreys':
+                result = "https://27153.live.streamtheworld.com/AFNP_OSNAAC.aac";
+                title = 'AFN Humphreys';
+                break;
+            case 'daegu':
+                result = "https://24933.live.streamtheworld.com/AFNP_DGU_SC";
+                title = 'AFN Daegu';
+                break;
+            case 'kunsan':
+                result = "https://29053.live.streamtheworld.com/AFNP_KSN_SC";
+                title = 'AFN Kunsan';
+                break;
+        }
+    }
+
     if (stn == 'ebs') {
         result = "https://ebsonair.ebs.co.kr/fmradiofamilypc/familypc1m/playlist.m3u8";
         title = 'EBS FM';
     }
 
-    /*----- YTN 라디오 -----*/
     if (stn == 'ytn') {
         result = "https://radiolive.ytn.co.kr/radio/_definst_/20211118_fmlive/playlist.m3u8";
         title = 'YTN 라디오';
     }
 
-    /*----- iFM 경인방송 -----*/
     if (stn == 'ifm') {
         result = "https://180.131.1.27:1935/live/aod1/playlist.m3u8";
         title = 'iFM 경인방송';
     }
 
-    /*----- OBS 라디오 -----*/
     if (stn == 'obs') {
         result = "https://vod3.obs.co.kr:444/live/obsstream1/radio.stream/playlist.m3u8";
         title = 'OBS 라디오';
     }
 
-    /*----- 국방FM -----*/
     if (stn == 'kookbang') {
         result = "https://mediaworks.dema.mil.kr/live_edge/audio.sdp/playlist.m3u8";
         title = '국방FM';
     }
 
-    /*----- 국악방송 -----*/
     if (stn == 'kugak') {
         result = "https://mgugaklive.nowcdn.co.kr/gugakradio/gugakradio.stream/playlist.m3u8";
         title = '국악방송';

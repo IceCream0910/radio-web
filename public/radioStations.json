@@ -115,9 +115,14 @@
         "url": "/api/stream?stn=cbs&ch=mfm"
     },
     {
-        "title": "CPBC 가톨릭평화방송",
+        "title": "CBS JOY4U",
         "city": "seoul",
-        "url": "/api/stream?stn=cpbc"
+        "url": "https://m-aac.cbs.co.kr/mweb_cbscmc/_definst_/cbscmc.stream/playlist.m3u8"
+    },
+    {
+        "title": "BBS 서울불교방송",
+        "city": "seoul",
+        "url": "https://bbslive.clouducs.com/bbsradio-live/livestream/playlist.m3u"
     },
     {
         "title": "국방FM",
@@ -192,14 +197,29 @@
         "url": "/api/stream/?stn=mbc&ch=fm4u&city=ulsan"
     },
     {
-        "title": "MBC경남 표준FM",
+        "title": "경남MBC 표준FM",
         "city": "busan",
         "url": "/api/stream/?stn=mbc&ch=sfm&city=changwon"
     },
     {
-        "title": "MBC경남 FM4U",
+        "title": "경남MBC FM4U",
         "city": "busan",
         "url": "/api/stream/?stn=mbc&ch=fm4u&city=changwon"
+    },
+    {
+        "title": "KNN 러브FM",
+        "city": "busan",
+        "url": "/api/stream/?stn=sbs&ch=lovefm&city=busan"
+    },
+    {
+        "title": "KNN 파워FM",
+        "city": "busan",
+        "url": "/api/stream/?stn=sbs&ch=powerfm&city=busan"
+    },
+    {
+        "title": "UBC 그린FM",
+        "city": "busan",
+        "url": "https://stream.ubc.co.kr/hls/ubcfmstream/index.m3u8"
     },
     {
         "title": "EBS FM",
@@ -240,11 +260,6 @@
         "title": "경남CBS 표준FM",
         "city": "busan",
         "url": "/api/stream/?stn=cbs&ch=sfm&city=gyeongnam"
-    },
-    {
-        "title": "CPBC 부산가톨릭평화방송",
-        "city": "busan",
-        "url": "/api/stream/?stn=cpbc&city=busan"
     },
     {
         "title": "국방FM",
@@ -438,19 +453,29 @@
         "url": "/api/stream?stn=cbs&ch=sfm&city=gwangju"
     },
     {
+        "title": "광주CBS 음악FM",
+        "city": "gwangju",
+        "url": "https://m-aac.cbs.co.kr/gwangju939/_definst_/gwangju939.stream/chunklist.m3u8"
+    },
+    {
         "title": "전남CBS 표준FM",
         "city": "gwangju",
         "url": "/api/stream?stn=cbs&ch=sfm&city=jeonnam"
     },
     {
-        "title": "CPBC 광주가톨릭평화방송",
+        "title": "FEBC 목포극동방송",
         "city": "gwangju",
-        "url": "/api/stream?stn=cpbc&city=gwangju"
+        "url": "https://mlive3.febc.net/live5/mplive/playlist.m3u8"
     },
     {
         "title": "국방FM",
         "city": "gwangju",
         "url": "/api/stream?stn=kookbang"
+    },
+    {
+        "title": "광주국악방송",
+        "city": "gwangju",
+        "url": "https://mgugaklive.nowcdn.co.kr/gugakgwangju/Glive.stream/playlist.m3u8"
     },
     {
         "title": "KBS전주 1라디오",
@@ -479,6 +504,11 @@
         "title": "전주MBC FM4U",
         "city": "jeonbuk",
         "url": "/api/stream?stn=mbc&ch=fm4u&city=jeonju"
+    },
+    {
+        "title": "JTV 매직FM",
+        "city": "jeonbuk",
+        "url": "https://jtvonair.sbsoft.net/jtv_radio/myStream/playlist.m3u8"
     },
     {
         "title": "EBS FM",
@@ -531,7 +561,7 @@
     {
         "title": "TJB 파워FM",
         "city": "daejeon",
-        "url": "/api/stream?stn=sbs&ch=powerfm&city=daejeon"
+        "url": "https://vod.tjb.co.kr/radiolive/_definst_/radio_64k/playlist.m3u8"
     },
     {
         "title": "EBS FM",
@@ -552,6 +582,11 @@
         "title": "국방FM",
         "city": "daejeon",
         "url": "/api/stream?stn=kookbang"
+    },
+    {
+        "title": "대전국악방송",
+        "city": "daejeon",
+        "url": "https://mgugaklive.nowcdn.co.kr/gugakdaejeon/Daejeonradio.stream/playlist.m3u8"
     },
     {
         "title": "KBS청주 1라디오",
@@ -667,6 +702,11 @@
         "url": "/api/stream?stn=mbc&ch=fm4u&city=gangneung"
     },
     {
+        "title": "G1 프레쉬FM",
+        "city": "gangwon",
+        "url": "https://media.g1tv.co.kr/fm/_definst_/myStream/playlist.m3u8"
+    },
+    {
         "title": "EBS FM",
         "city": "gangwon",
         "url": "/api/stream?stn=ebs"
@@ -680,6 +720,11 @@
         "title": "춘천CBS 표준FM",
         "city": "gangwon",
         "url": "/api/stream?stn=cbs&ch=sfm&city=chuncheon"
+    },
+    {
+        "title": "강원영동CBS 표준FM",
+        "city": "gangwon",
+        "url": "https://m-aac.cbs.co.kr/youngdong/_definst_/youngdong.stream/chunklist.m3u8"
     },
     {
         "title": "국방FM",
@@ -713,6 +758,11 @@
         "title": "제주MBC FM4U",
         "city": "jeju",
         "url": "/api/stream?stn=mbc&ch=fm4u&city=jeju"
+    },
+    {
+        "title": "JIBS 뉴파워FM",
+        "city": "jeju",
+        "url": "https://media.jibs.co.kr/stream/2/play.m3u8"
     },
     {
         "title": "EBS FM",

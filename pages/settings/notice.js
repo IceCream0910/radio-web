@@ -4,6 +4,35 @@ import IonIcon from '@reacticons/ionicons';
 
 const NoticeData = [
   {
+    question: '25년 8월 업데이트 내역',
+    date: '2025.08.20',
+    answer: `
+        <h3 style="margin-bottom: 10px;">신규 스테이션 추가</h3>
+        <b>- 수도권</b><br/>
+        · CBS JOY4U<br/>
+        · BBS 서울불교방송<br/><br/>
+        <b>- 부산·울산·경남</b><br/>
+        · KNN 러브FM<br/>
+        · KNN 파워FM<br/>
+        · UBC 그린FM<br/><br/>
+        <b>- 광주·전남</b><br/>
+        · 광주CBS 음악FM<br/>
+        · 광주국악방송<br/><br/>
+        <b>- 전북</b><br/>
+        · JTV 매직FM<br/><br/>
+        <b>- 대전·세종·충남</b><br/>
+        · 대전국악방송<br/><br/>
+        <b>- 충북</b><br/>
+        · CJB 조이FM<br/><br/>
+        <b>- 강원</b><br/>
+        · G1 프레쉬FM<br/>
+        · 강원영동CBS 표준FM<br/><br/>
+         <b>- 제주</b><br/>
+        · JIBS 뉴파워FM<br/><br/>
+        - 이외 재생되지 않던 일부 스테이션 수정
+       `,
+  },
+  {
     question: '24년 9월 업데이트 내역',
     date: '2024.9.30',
     answer: `
