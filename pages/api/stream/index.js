@@ -153,7 +153,7 @@ export default async function handler(req, res) {
                         title = '목포MBC';
                         break;
                     case 'yeosu':
-                        result = "https://5c3639aa99149.streamlock.net/표준FM/표준FM/playlist.m3u8";
+                        result = encodeURI("https://5c3639aa99149.streamlock.net/표준FM/표준FM/playlist.m3u8");
                         title = '여수MBC';
                         break;
                     case 'jeonju':
@@ -169,7 +169,7 @@ export default async function handler(req, res) {
                         title = 'MBC충북';
                         break;
                     case 'chuncheon':
-                        result = "https://stream.chmbc.co.kr/live_radio/fm2/playlist.m3u8";
+                        result = "https://stream.chmbc.co.kr/radio1/fm1_aac/playlist.m3u8";
                         title = '춘천MBC';
                         break;
                     case 'wonju':
@@ -303,7 +303,7 @@ export default async function handler(req, res) {
                         title = 'KNN 파워FM';
                         break;
                     case 'ulsan':
-                        result = "http://59.23.231.102:1935/live/mp3:UBCfmstream/playlist.m3u8";
+                        result = "https://stream.ubc.co.kr/hls/ubcfmstream/index.m3u8";
                         title = 'UBC 그린FM';
                         break;
                     case 'daegu':
@@ -319,15 +319,19 @@ export default async function handler(req, res) {
                         title = 'JTV 매직FM';
                         break;
                     case 'daejeon':
-                        result = "http://1.245.74.5/radiolive/radio_64k/playlist.m3u8";
+                        result = "https://vod.tjb.co.kr/radiolive/_definst_/radio_64k/playlist.m3u8";
                         title = 'TJB 파워FM';
                         break;
                     case 'cheongju':
                         result = "https://wowza1.cjb.co.kr/live/cjbradio/playlist.m3u8";
                         title = 'CJB 조이FM';
                         break;
+                    case 'gangwon':
+                        result = "https://media.g1tv.co.kr/fm/_definst_/myStream/playlist.m3u8";
+                        title = 'G1 프레쉬FM';
+                        break;
                     case 'jeju':
-                        result = "http://123.140.197.22/stream/2/play.m3u8";
+                        result = "https://media.jibs.co.kr/stream/2/play.m3u8";
                         title = 'JIBS 뉴파워FM';
                         break;
                     default:
@@ -452,6 +456,10 @@ export default async function handler(req, res) {
                         result = "https://m-aac.cbs.co.kr/chuncheon/_definst_/chuncheon.stream/playlist.m3u8";
                         title = '춘천';
                         break;
+                    case 'youngdong':
+                        result = "https://m-aac.cbs.co.kr/youngdong/_definst_/youngdong.stream/chunklist.m3u8";
+                        title = '영동';
+                        break;
                     case 'jeju':
                         result = "https://m-aac.cbs.co.kr/jeju/_definst_/jeju.stream/playlist.m3u8";
                         title = '제주';
@@ -469,6 +477,10 @@ export default async function handler(req, res) {
                         result = "https://m-aac.cbs.co.kr/busan939/_definst_/busan939.stream/playlist.m3u8";
                         title = '부산';
                         break;
+                    case 'gwangju':
+                        result = "https://m-aac.cbs.co.kr/gwangju939/_definst_/gwangju939.stream/chunklist.m3u8";
+                        title = '광주';
+                        break;
                     case 'daegu':
                         result = "https://m-aac.cbs.co.kr/daegu939/_definst_/daegu939.stream/playlist.m3u8";
                         title = '대구';
@@ -479,6 +491,10 @@ export default async function handler(req, res) {
                         break;
                 }
                 title += 'CBS 음악FM';
+                break;
+            case 'joy4u':
+                result = "https://m-aac.cbs.co.kr/mweb_cbscmc/_definst_/cbscmc.stream/playlist.m3u8";
+                title = "CBS JOY4U";
                 break;
         }
     }
@@ -511,7 +527,7 @@ export default async function handler(req, res) {
                 title = 'FEBC 광주극동방송';
                 break;
             case 'mokpo':
-                result = "http://mlive2.febc.net:1935/live/mplive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/mplive/playlist.m3u8";
                 title = 'FEBC 목포극동방송';
                 break;
             case 'jeonnam':
@@ -553,7 +569,7 @@ export default async function handler(req, res) {
                 title = 'BBS 대구불교방송';
                 break;
             default:
-                result = "https://bbslive.clouducs.com/bbsradio-live/livestream/playlist.m3u8";
+                result = "https://bbslive.clouducs.com/bbsradio-live/livestream/playlist.m3u";
                 title = 'BBS 서울불교방송';
                 break;
         }
@@ -651,9 +667,22 @@ export default async function handler(req, res) {
         title = '국방FM';
     }
 
-    if (stn == 'kugak') {
-        result = "https://mgugaklive.nowcdn.co.kr/gugakradio/gugakradio.stream/playlist.m3u8";
-        title = '국악방송';
+    if (stn == 'gugak') {
+        switch(city) {
+            case 'gwangju':
+                result = "https://mgugaklive.nowcdn.co.kr/gugakgwangju/Glive.stream/playlist.m3u8";
+                title = '광주국악방송';
+                break;
+            case 'daejeon':
+                result = "https://mgugaklive.nowcdn.co.kr/gugakdaejeon/Daejeonradio.stream/playlist.m3u8";
+                title = '대전국악방송';
+                break;
+            default:
+                result = "https://mgugaklive.nowcdn.co.kr/gugakradio/gugakradio.stream/playlist.m3u8";
+                title = '국악방송';
+                break;
+        }
+        
     }
 
     if (result !== undefined) {
