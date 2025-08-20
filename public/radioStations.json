@@ -120,6 +120,11 @@
         "url": "api/stream?stn=cbs&ch=joy4u"
     },
     {
+        "title": "iFM 경인방송",
+        "city": "seoul",
+        "url": "/api/stream?stn=ifm"
+    },
+    {
         "title": "BBS 서울불교방송",
         "city": "seoul",
         "url": "/api/stream?stn=bbs"

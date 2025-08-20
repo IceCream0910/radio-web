@@ -663,8 +663,13 @@ export default async function handler(req, res) {
     }
 
     if (stn == 'kookbang') {
-        result = "https://mediaworks.dema.mil.kr/live_edge/audio.sdp/playlist.m3u8";
+        result = "https://mgugaklive.nowcdn.co.kr/gugakradio/gugakradio.stream/playlist.m3u8";
         title = '국방FM';
+    }
+
+    if (stn == 'ifm') {
+        result = "https://stream.ifm.kr/live/aod1/playlist.m3u8";
+        title = 'iFM 경인방송';
     }
 
     if (stn == 'gugak') {
