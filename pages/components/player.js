@@ -15,7 +15,6 @@ const HlsPlayer = forwardRef((props, ref) => {
     const [actualFavorites, setActualFavorites] = useState([])
 
     const videoRef = useRef(null);
-    const audioRef = useRef(null);
     const [isReady, setIsReady] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -28,17 +27,11 @@ const HlsPlayer = forwardRef((props, ref) => {
     const intervalSongFetch = useRef(null);
     const intervalProgramFetch = useRef(null);
 
-    const [songFetchInterval, setSongFetchInterval] = useState(15000);
-    const [programFetchInterval, setProgramFetchInterval] = useState(60000);
-    const lastSongData = useRef('');
-    const lastProgramData = useRef('');
-    const consecutiveNoChangeCount = useRef({ song: 0, program: 0 });
-    const previousPlayerUrl = useRef(''); // 이전 플레이어 URL 추적
-
     const [isOpenTimerModal, setIsOpenTimerModal] = useState(false);
 
     const [isMobile, setIsMobile] = useState(true);
     const [isFocusing, setIsFocusing] = useState(true);
+
 
     const [isPlayerAnimation, setIsPlayerAnimation] = useState(true);
 
@@ -88,80 +81,10 @@ const HlsPlayer = forwardRef((props, ref) => {
         isSidebar.current = useragent.indexOf('sidebar') > -1;
 
         window.addEventListener("blur", () => {
-            setIsFocusing(false);
-            // 포커스를 잃으면 폴링 중단하여 리소스 절약
-            if (intervalSongFetch.current) {
-                clearInterval(intervalSongFetch.current);
-            }
-            if (intervalProgramFetch.current) {
-                clearInterval(intervalProgramFetch.current);
-            }
+            setIsFocusing(false)
         });
         window.addEventListener("focus", () => {
-            setIsFocusing(true);
-            // 포커스 복귀시 기존 데이터를 유지하면서 새로운 데이터 즉시 fetch
-            if (player.song) {
-                const fetchSongData = async () => {
-                    try {
-                        const response = await fetch(player.song, {
-                            headers: {
-                                'Cache-Control': 'no-cache'
-                            }
-                        });
-                        const data = await response.json();
-                        const newSong = data.song ? '♬ ' + data.song : '';
-
-                        if (newSong !== lastSongData.current) {
-                            lastSongData.current = newSong;
-                            setCurrentSong(newSong);
-                            randomBackground();
-                        }
-                    } catch (error) {
-                        console.error('Error fetching song data on focus:', error);
-                    }
-                };
-                fetchSongData();
-
-                // 폴링 재시작
-                intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
-            }
-
-            if (player.program) {
-                const fetchProgramData = async () => {
-                    try {
-                        const response = await fetch(player.program, {
-                            headers: {
-                                'Cache-Control': 'no-cache'
-                            }
-                        });
-                        const data = await response.json();
-
-                        if (data.title && data.title !== lastProgramData.current) {
-                            lastProgramData.current = data.title;
-                            setCurrentProgram(data.title);
-                            randomBackground();
-
-                            if ('mediaSession' in navigator) {
-                                navigator.mediaSession.metadata = new MediaMetadata({
-                                    title: data.title || '제목없음',
-                                    artist: player.title || '제목없음',
-                                    artwork: [{
-                                        src: "/albumart.png",
-                                        sizes: "500x500",
-                                        type: "image/png",
-                                    }]
-                                });
-                            }
-                        }
-                    } catch (error) {
-                        console.error('Error fetching program data on focus:', error);
-                    }
-                };
-                fetchProgramData();
-
-                // 폴링 재시작
-                intervalProgramFetch.current = setInterval(fetchProgramData, programFetchInterval);
-            }
+            setIsFocusing(true)
         });
 
         const mediaQuery = window.matchMedia('(max-width: 952px)');
@@ -196,79 +119,15 @@ const HlsPlayer = forwardRef((props, ref) => {
                 }
             });
             window.removeEventListener("blur", () => {
-                setIsFocusing(false);
-                if (intervalSongFetch.current) {
-                    clearInterval(intervalSongFetch.current);
-                }
-                if (intervalProgramFetch.current) {
-                    clearInterval(intervalProgramFetch.current);
-                }
+                setIsFocusing(false)
             });
             window.removeEventListener("focus", () => {
-                setIsFocusing(true);
-                // 포커스 복귀시 기존 데이터를 유지하면서 새로운 데이터 즉시 fetch
-                if (player.song) {
-                    const fetchSongData = async () => {
-                        try {
-                            const response = await fetch(player.song, {
-                                headers: {
-                                    'Cache-Control': 'no-cache'
-                                }
-                            });
-                            const data = await response.json();
-                            const newSong = data.song ? '♬ ' + data.song : '';
-
-                            if (newSong !== lastSongData.current) {
-                                lastSongData.current = newSong;
-                                setCurrentSong(newSong);
-                                randomBackground();
-                            }
-                        } catch (error) {
-                            console.error('Error fetching song data on focus:', error);
-                        }
-                    };
-                    fetchSongData();
-                    intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
-                }
-
-                if (player.program) {
-                    const fetchProgramData = async () => {
-                        try {
-                            const response = await fetch(player.program, {
-                                headers: {
-                                    'Cache-Control': 'no-cache'
-                                }
-                            });
-                            const data = await response.json();
-
-                            if (data.title && data.title !== lastProgramData.current) {
-                                lastProgramData.current = data.title;
-                                setCurrentProgram(data.title);
-                                randomBackground();
-
-                                if ('mediaSession' in navigator) {
-                                    navigator.mediaSession.metadata = new MediaMetadata({
-                                        title: data.title || '제목없음',
-                                        artist: player.title || '제목없음',
-                                        artwork: [{
-                                            src: "/albumart.png",
-                                            sizes: "500x500",
-                                            type: "image/png",
-                                        }]
-                                    });
-                                }
-                            }
-                        } catch (error) {
-                            console.error('Error fetching program data on focus:', error);
-                        }
-                    };
-                    fetchProgramData();
-                    intervalProgramFetch.current = setInterval(fetchProgramData, programFetchInterval);
-                }
+                setIsFocusing(true)
             });
         }
 
     }, []);
+
 
     useEffect(() => {
         if (isOpen && isMobile) {
@@ -304,95 +163,35 @@ const HlsPlayer = forwardRef((props, ref) => {
             clearInterval(intervalProgramFetch.current);
             intervalProgramFetch.current = null;
         }
+        setCurrentProgram('');
+        setCurrentSong('');
 
-        // 실제로 플레이어 URL이 변경된 경우에만 배경 업데이트 및 데이터 초기화
-        const playerUrlChanged = player.url !== previousPlayerUrl.current;
-        if (player.url && playerUrlChanged) {
-            randomBackground();
-            setCurrentProgram('');
-            setCurrentSong('');
-
-            // 스마트 폴링 초기화
-            consecutiveNoChangeCount.current = { song: 0, program: 0 };
-            setSongFetchInterval(15000);
-            setProgramFetchInterval(60000);
-
-            // 이전 URL 업데이트
-            previousPlayerUrl.current = player.url;
-        }
-
-        // 포커스가 없으면 폴링하지 않음
-        if (!isFocusing) {
-            return;
-        }
-
+        randomBackground();
         if (player.song) {
             const fetchSongData = async () => {
                 try {
-                    const response = await fetch(player.song, {
-                        headers: {
-                            'Cache-Control': 'no-cache'
-                        }
-                    });
+                    const response = await fetch(player.song);
                     const data = await response.json();
-                    const newSong = data.song ? '♬ ' + data.song : '';
-
-                    // 데이터 변경 감지 및 스마트 폴링 조정
-                    if (newSong === lastSongData.current) {
-                        consecutiveNoChangeCount.current.song++;
-                        // 연속으로 변화가 없으면 폴링 간격을 점진적으로 늘림 (최대 45초)
-                        if (consecutiveNoChangeCount.current.song >= 3) {
-                            setSongFetchInterval(prev => Math.min(prev + 10000, 45000));
-                        }
+                    if (data.song) {
+                        setCurrentSong('♬ ' + data.song);
                     } else {
-                        consecutiveNoChangeCount.current.song = 0;
-                        setSongFetchInterval(15000); // 변화가 있으면 다시 기본 간격으로
-                        randomBackground(); // 곡이 변경될 때만 배경 업데이트
+                        setCurrentSong('');
                     }
-
-                    lastSongData.current = newSong;
-                    setCurrentSong(newSong);
                 } catch (error) {
-                    console.error('Error fetching song data:', error);
-                    // 네트워크 에러인 경우 기존 데이터 유지, 폴링 간격만 조정
-                    setSongFetchInterval(prev => Math.min(prev + 5000, 30000));
+                    console.error('Error fetching data:', error);
                 }
             };
-
-            fetchSongData();
-
-            intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
-        } else {
-            setCurrentSong('');
-        }
-
+            fetchSongData()
+            intervalSongFetch.current = setInterval(fetchSongData, 15000);
+        } else { setCurrentSong('') }
         if (player.program) {
             const fetchProgramData = async () => {
                 try {
-                    const response = await fetch(player.program, {
-                        headers: {
-                            'Cache-Control': 'no-cache'
-                        }
-                    });
+                    const response = await fetch(player.program);
                     const data = await response.json();
 
                     if (data.title) {
-                        // 데이터 변경 감지 및 스마트 폴링 조정
-                        if (data.title === lastProgramData.current) {
-                            consecutiveNoChangeCount.current.program++;
-                            // 프로그램은 변화가 적으므로 더 보수적으로 간격 조정 (최대 5분)
-                            if (consecutiveNoChangeCount.current.program >= 2) {
-                                setProgramFetchInterval(prev => Math.min(prev + 30000, 300000));
-                            }
-                        } else {
-                            consecutiveNoChangeCount.current.program = 0;
-                            setProgramFetchInterval(60000); // 변화가 있으면 다시 기본 간격으로
-                            randomBackground(); // 프로그램이 변경될 때만 배경 업데이트
-                        }
-
-                        lastProgramData.current = data.title;
                         setCurrentProgram(data.title);
-
                         if ('mediaSession' in navigator) {
                             navigator.mediaSession.metadata = new MediaMetadata({
                                 title: data.title || '제목없음',
@@ -408,21 +207,20 @@ const HlsPlayer = forwardRef((props, ref) => {
                         setCurrentProgram('');
                     }
                 } catch (error) {
-                    console.error('Error fetching program data:', error);
-                    // 네트워크 에러인 경우 기존 데이터 유지, 폴링 간격만 조정
-                    setProgramFetchInterval(prev => Math.min(prev + 15000, 180000));
+                    console.error('Error fetching data:', error);
                 }
             };
 
             fetchProgramData();
+            intervalProgramFetch.current = setInterval(fetchProgramData, 60 * 1000);
 
-            intervalProgramFetch.current = setInterval(fetchProgramData, programFetchInterval);
-        } else {
-            setCurrentProgram('');
-        }
+        } else { setCurrentProgram('') }
 
 
         if (isNative.current && player.url) {
+
+            const id = player.url.trim().replaceAll('https://', '').replaceAll('http://', '').replace('/api/stream?', '').replace('radio.yuntae.in', '')
+
             try {
                 Native.play(player.url, player.title || "제목없음");
                 setIsPlaying(true);
@@ -430,34 +228,16 @@ const HlsPlayer = forwardRef((props, ref) => {
                 console.log("native error:", error)
             }
         } else {
-            if (Hls.isSupported() && player.url) {
+            if (Hls.isSupported() && player) {
+                const video = videoRef.current;
+                const hls = new Hls();
+
+                if (player && player.url) {
+                    const id = player.url.trim().replaceAll('https://', '').replaceAll('http://', '').replace('/api/stream?', '').replace('radio.yuntae.in', '')
 
 
-                console.log(player.url.toLowerCase())
-                if (player.url.toLowerCase().endsWith(".acc")) {
-                    audioRef.current.src = player.url;
-                    audioRef.current.play();
-                    console.log(audioRef.current);
-
-                    if ('mediaSession' in navigator) {
-                        navigator.mediaSession.metadata = new MediaMetadata({
-                            title: player.title || '제목없음',
-                            artist: '라디오 스트리밍 중',
-                            artwork: [{
-                                src: "/albumart.png",
-                                sizes: "500x500",
-                                type: "image/png",
-                            }]
-                        });
-                    }
-                } else {
-                    const video = videoRef.current;
-                    const hls = new Hls();
-
-                    if (player && player.url) {
-                        hls.loadSource(player.url.trim());
-                        hls.attachMedia(video);
-                    }
+                    hls.loadSource(player.url.trim());
+                    hls.attachMedia(video);
 
                     video.addEventListener('canplaythrough', () => {
                         video.play();
@@ -475,14 +255,13 @@ const HlsPlayer = forwardRef((props, ref) => {
                             }]
                         });
                     }
-
-                    return () => {
-                        hls.destroy();
-                    };
                 }
+
+                return () => {
+                    hls.destroy();
+                };
             }
         }
-
 
         return () => {
             if (intervalSongFetch.current) {
@@ -492,98 +271,8 @@ const HlsPlayer = forwardRef((props, ref) => {
                 clearInterval(intervalProgramFetch.current);
             }
         };
-    }, [player.url, player.song, player.program, isFocusing]); // interval 상태 제거
+    }, [player]);
 
-    // songFetchInterval이 변경될 때만 song interval 재설정
-    useEffect(() => {
-        if (player.song && isFocusing && intervalSongFetch.current) {
-            clearInterval(intervalSongFetch.current);
-
-            const fetchSongData = async () => {
-                try {
-                    const response = await fetch(player.song, {
-                        headers: {
-                            'Cache-Control': 'no-cache'
-                        }
-                    });
-                    const data = await response.json();
-                    const newSong = data.song ? '♬ ' + data.song : '';
-
-                    if (newSong === lastSongData.current) {
-                        consecutiveNoChangeCount.current.song++;
-                        if (consecutiveNoChangeCount.current.song >= 3) {
-                            setSongFetchInterval(prev => Math.min(prev + 10000, 45000));
-                        }
-                    } else {
-                        consecutiveNoChangeCount.current.song = 0;
-                        setSongFetchInterval(15000);
-                        randomBackground();
-                    }
-
-                    lastSongData.current = newSong;
-                    setCurrentSong(newSong);
-                } catch (error) {
-                    console.error('Error fetching song data:', error);
-                    setSongFetchInterval(prev => Math.min(prev + 5000, 30000));
-                }
-            };
-
-            intervalSongFetch.current = setInterval(fetchSongData, songFetchInterval);
-        }
-    }, [songFetchInterval]);
-
-    // programFetchInterval이 변경될 때만 program interval 재설정
-    useEffect(() => {
-        if (player.program && isFocusing && intervalProgramFetch.current) {
-            clearInterval(intervalProgramFetch.current);
-
-            const fetchProgramData = async () => {
-                try {
-                    const response = await fetch(player.program, {
-                        headers: {
-                            'Cache-Control': 'no-cache'
-                        }
-                    });
-                    const data = await response.json();
-
-                    if (data.title) {
-                        if (data.title === lastProgramData.current) {
-                            consecutiveNoChangeCount.current.program++;
-                            if (consecutiveNoChangeCount.current.program >= 2) {
-                                setProgramFetchInterval(prev => Math.min(prev + 30000, 300000));
-                            }
-                        } else {
-                            consecutiveNoChangeCount.current.program = 0;
-                            setProgramFetchInterval(60000);
-                            randomBackground();
-                        }
-
-                        lastProgramData.current = data.title;
-                        setCurrentProgram(data.title);
-
-                        if ('mediaSession' in navigator) {
-                            navigator.mediaSession.metadata = new MediaMetadata({
-                                title: data.title || '제목없음',
-                                artist: player.title || '제목없음',
-                                artwork: [{
-                                    src: "/albumart.png",
-                                    sizes: "500x500",
-                                    type: "image/png",
-                                }]
-                            });
-                        }
-                    } else {
-                        setCurrentProgram('');
-                    }
-                } catch (error) {
-                    console.error('Error fetching program data:', error);
-                    setProgramFetchInterval(prev => Math.min(prev + 15000, 180000));
-                }
-            };
-
-            intervalProgramFetch.current = setInterval(fetchProgramData, programFetchInterval);
-        }
-    }, [programFetchInterval]);
 
 
     function randomBackground() {
@@ -605,12 +294,11 @@ const HlsPlayer = forwardRef((props, ref) => {
     }
 
     useEffect(() => {
-        if (videoRef.current && audioRef.current && !isNative.current) {
+        if (videoRef.current && !isNative.current) {
             if (isPlaying) {
                 replay();
             } else {
                 videoRef.current.pause();
-                audioRef.current.pause();
             }
         }
     }, [isPlaying]);
@@ -734,8 +422,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                         {player && (!isOpen ? player.title : '지금 재생 중')}
                         {player == [] && '재생 중인 스테이션 없음'}
                     </div>
-                    {/* userCnt 및 supabase 관련 UI 제거 */}
-                    {/* {!isOpen && player && ...existing code... */}
+
                     {!isOpen && player &&
                         <div className='player-header-close' onClick={() => [setNativePlayerPlaying(isPlaying ? false : true), setIsPlaying(!isPlaying)]}>
                             {isBuffering ? <div className='loader' />
@@ -782,8 +469,6 @@ const HlsPlayer = forwardRef((props, ref) => {
 
                 <video autoPlay style={{ display: 'none' }}
                     ref={videoRef} />
-                <audio autoPlay style={{ display: 'none' }} ref={audioRef} crossOrigin="anonymous"
-                    playsInline></audio>
             </div>
 
         </SwipeableBottomSheet>}
