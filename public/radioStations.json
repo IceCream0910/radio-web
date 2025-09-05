@@ -291,13 +291,13 @@
     },
     {
         "title": "KBS안동 1라디오",
-        "city": "andong",
+        "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=andong",
         "program": "/api/onair/program?stn=kbs&ch=1radio&city=andong"
     },
     {
         "title": "KBS포항 1라디오",
-        "city": "pohang",
+        "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=pohang",
         "program": "/api/onair/program?stn=kbs&ch=1radio&city=pohang"
     },
