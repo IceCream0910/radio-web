@@ -4,6 +4,14 @@ import IonIcon from '@reacticons/ionicons';
 
 const NoticeData = [
   {
+    question: '25년 9월 업데이트 내역',
+    date: '2025.09.05',
+    answer: `
+      - 플레이어 화면에서 이전/다음 스테이션으로 이동 가능<br/>
+      - Android Auto 지원
+       `,
+  },
+  {
     question: '25년 8월 업데이트 내역',
     date: '2025.08.20',
     answer: `
