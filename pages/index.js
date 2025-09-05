@@ -81,7 +81,7 @@ const IndexPage = () => {
         </header>
 
 
-        <div style={{ height: 'var(--main-header-bottom-margin)' }} />
+        <div style={{ height: '120px' }} />
 
         <div style={{ width: '100%', height: '50px', maxHeight: '50px', display: 'flex', justifyContent: 'center' }}>
           <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
