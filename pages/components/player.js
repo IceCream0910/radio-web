@@ -4,7 +4,7 @@ import SwipeableBottomSheet from 'react-swipeable-bottom-sheet';
 import IonIcon from '@reacticons/ionicons'
 import BottomNav from './bottomNav';
 import { useRecoilState } from 'recoil';
-import { playerData, favoritesData } from '../../states/states';
+import { playerData, favoritesData, stationListContext } from '../../states/states';
 import toast from 'react-hot-toast';
 import '@material/web/ripple/ripple.js';
 import TimerModal from './timerModal';
@@ -12,6 +12,7 @@ import TimerModal from './timerModal';
 const HlsPlayer = forwardRef((props, ref) => {
     const [player, setPlayer] = useRecoilState(playerData);
     const [favorites, setFavorites] = useRecoilState(favoritesData);
+    const [listContext, setListContext] = useRecoilState(stationListContext);
     const [actualFavorites, setActualFavorites] = useState([])
 
     const videoRef = useRef(null);
@@ -67,11 +68,13 @@ const HlsPlayer = forwardRef((props, ref) => {
                 isNative.current && Native.backHandlerApp();
             }
         }
-    };
-
-    useImperativeHandle(ref, () => ({
+    }; useImperativeHandle(ref, () => ({
         nativePlayerState: handleNativePlayerState,
-        nativeBackHandler: handleNativeBack
+        nativeBackHandler: handleNativeBack,
+        moveToPrev: goToPreviousStation,
+        moveToNext: goToNextStation,
+        canMovePrev: canGoPrevious,
+        canMoveNext: canGoNext
     }));
 
     useEffect(() => {
@@ -125,9 +128,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                 setIsFocusing(true)
             });
         }
-
     }, []);
-
 
     useEffect(() => {
         if (isOpen && isMobile) {
@@ -396,6 +397,44 @@ const HlsPlayer = forwardRef((props, ref) => {
         });
     }
 
+    const goToPreviousStation = () => {
+        if (!listContext.stations || listContext.stations.length === 0 || listContext.currentIndex <= 0) {
+            return;
+        }
+
+        const previousIndex = listContext.currentIndex - 1;
+        const previousStation = listContext.stations[previousIndex];
+
+        setPlayer(previousStation);
+        setListContext({
+            ...listContext,
+            currentIndex: previousIndex
+        });
+    };
+
+    const goToNextStation = () => {
+        if (!listContext.stations || listContext.stations.length === 0 || listContext.currentIndex >= listContext.stations.length - 1) {
+            return;
+        }
+
+        const nextIndex = listContext.currentIndex + 1;
+        const nextStation = listContext.stations[nextIndex];
+
+        setPlayer(nextStation);
+        setListContext({
+            ...listContext,
+            currentIndex: nextIndex
+        });
+    };
+
+    const canGoPrevious = () => {
+        return listContext.stations && listContext.stations.length > 0 && listContext.currentIndex > 0;
+    };
+
+    const canGoNext = () => {
+        return listContext.stations && listContext.stations.length > 0 && listContext.currentIndex < listContext.stations.length - 1;
+    };
+
     return (<>
         {isReady && player.title && <SwipeableBottomSheet
             open={isOpen}
@@ -438,13 +477,28 @@ const HlsPlayer = forwardRef((props, ref) => {
                         </div>
 
                         <span>{currentProgram}</span><br />
-                        <span style={{ opacity: 0.7 }} onClick={() => copyToClipboard(currentSong.replace('♬ ', ''))}>{currentSong}</span>
+                        <span style={{ opacity: 0.7 }} onClick={() => copyToClipboard(currentSong.replace('♬ ', ''))}>{currentSong}</span>                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'space-between', marginTop: `${currentProgram ? '20px' : '0'}` }}>                            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                            <div
+                                className={`${!canGoPrevious() ? 'disabled' : ''}`}
+                                onClick={canGoPrevious() ? goToPreviousStation : undefined}
+                                style={{ opacity: canGoPrevious() ? 1 : 0.3 }}
+                            >
+                                <IonIcon name='play-skip-back' />
+                            </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'space-between', marginTop: `${currentProgram ? '20px' : '0'}` }}>
                             <div className='player-playpause-btn' onClick={() => [setNativePlayerPlaying(isPlaying ? false : true), setIsPlaying(!isPlaying)]}>
                                 {isBuffering ? <div className='loader' />
                                     : isPlaying ? <IonIcon name='pause' /> : <IonIcon name='play' />}
                             </div>
+
+                            <div
+                                className={`${!canGoNext() ? 'disabled' : ''}`}
+                                onClick={canGoNext() ? goToNextStation : undefined}
+                                style={{ opacity: canGoNext() ? 1 : 0.3 }}
+                            >
+                                <IonIcon name='play-skip-forward' />
+                            </div>
+                        </div>
 
 
                             <div style={{ display: 'flex', gap: '10px' }}>

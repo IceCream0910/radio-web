@@ -1,6 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { useRecoilState } from 'recoil';
-import { playerData, favoritesData } from '../../states/states';
+import { playerData, favoritesData, stationListContext } from '../../states/states';
 import { useMemo } from 'react';
 import toast from 'react-hot-toast';
 
@@ -10,6 +10,7 @@ const uniqueRadioStations = Array.from(new Map(allRadioStations.map(station => [
 export default function FavoriteStationList() {
     const [player, setPlayer] = useRecoilState(playerData);
     const [favorites, setFavorites] = useRecoilState(favoritesData);
+    const [listContext, setListContext] = useRecoilState(stationListContext);
 
     const toggleFavorites = (stationTitle) => {
         toast.dismiss();
@@ -32,11 +33,19 @@ export default function FavoriteStationList() {
         } else {
             setFavorites(prevFavorites => [...prevFavorites, stationTitle]);
         }
-    };
-
-    const favoriteStationsToDisplay = useMemo(() => {
+    }; const favoriteStationsToDisplay = useMemo(() => {
         return uniqueRadioStations.filter(station => favorites.includes(station.title));
     }, [favorites]);
+
+    const handleStationClick = (station, index) => {
+        setPlayer(station);
+        setListContext({
+            type: 'favorites',
+            region: null,
+            currentIndex: index,
+            stations: favoriteStationsToDisplay
+        });
+    };
 
     if (favoriteStationsToDisplay.length === 0) {
         return (
@@ -45,13 +54,11 @@ export default function FavoriteStationList() {
                 스테이션 옆 <IonIcon name='heart-outline' /> 버튼을 눌러 추가해보세요.
             </p>
         );
-    }
-
-    return (
+    } return (
         <>
-            {favoriteStationsToDisplay.map((station) => (
+            {favoriteStationsToDisplay.map((station, index) => (
                 <div className={`station-item ${player.title === station.title ? 'active' : ''}`} key={station.title}>
-                    <span style={{ width: '90%' }} onClick={() => setPlayer(station)}>
+                    <span style={{ width: '90%' }} onClick={() => handleStationClick(station, index)}>
                         {station.title}&nbsp;
                         {player.title === station.title ? <span className='badge'>재생중</span> : ''}
                     </span>

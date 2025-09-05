@@ -56,7 +56,7 @@ const IndexPage = () => {
 
       <main>
         <header>
-          <h2 style={{ width: '100%', textAlign: 'left', marginTop: '10px', marginLeft: '13px' }}>스테이션</h2>
+          <h2 style={{ width: '100%', textAlign: 'left', marginTop: '30px', marginLeft: '13px' }}>스테이션</h2>
           <div className="region-select">
             {isPCorSidebar && (<>
               <button className="scroll-button left" onClick={() => document.querySelector('.region-select').scrollBy({ left: -300, behavior: 'smooth' })}>

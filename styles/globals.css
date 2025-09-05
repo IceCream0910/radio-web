@@ -389,6 +389,29 @@ label {
   color: #ce3838;
 }
 
+.player-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--button-background-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+  color: var(--button-foreground-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.player-nav-btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
 .player-body svg {
   top: 0px;
 }

@@ -1,6 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { useRecoilState } from 'recoil';
-import { playerData, favoritesData } from '../../states/states';
+import { playerData, favoritesData, stationListContext } from '../../states/states';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -8,7 +8,10 @@ export default function RegionStationList({ region, playFunc }) {
     const radioData = require('/public/radioStations.json');
     const [player, setPlayer] = useRecoilState(playerData);
     const [favorites, setFavorites] = useRecoilState(favoritesData);
+    const [listContext, setListContext] = useRecoilState(stationListContext);
     const [actualFavorites, setActualFavorites] = useState([])
+
+    const regionStations = radioData.filter(radio => radio.city === region);
 
     const toggleFavorites = (title) => {
         if (favorites.includes(title)) {
@@ -50,10 +53,20 @@ export default function RegionStationList({ region, playFunc }) {
         setActualFavorites(favorites);
     }, [favorites]);
 
+    const handleStationClick = (radio, index) => {
+        setPlayer(radio);
+        setListContext({
+            type: 'region',
+            region: region,
+            currentIndex: index,
+            stations: regionStations
+        });
+    };
+
     return (<>
-        {radioData.filter(radio => radio.city === region).map((radio, index) => (
+        {regionStations.map((radio, index) => (
             <div className={`station-item ${player.title === radio.title ? 'active' : ''}`} key={index}>
-                <span onClick={() => setPlayer(radio)}>{radio.title}&nbsp;
+                <span onClick={() => handleStationClick(radio, index)}>{radio.title}&nbsp;
                     {player.title === radio.title ? <span className='badge'>재생중</span> : ''}</span>
                 <button onClick={() => toggleFavorites(radio.title)}>
                     {actualFavorites.includes(radio.title) ? <IonIcon name='heart' /> : <IonIcon name='heart-outline' />}

@@ -12,4 +12,14 @@ const favoritesData = atom({
     effects: [localStorageEffect("favoritesData")],
 });
 
-export { playerData, favoritesData };
+const stationListContext = atom({
+    key: 'stationListContext',
+    default: {
+        type: null,
+        region: null,
+        currentIndex: -1,
+        stations: []
+    }
+});
+
+export { playerData, favoritesData, stationListContext };

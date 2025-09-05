@@ -34,14 +34,14 @@ const FavoritesPage = () => {
 
             <main>
                 <header>
-                    <h2 style={{ width: '100%', textAlign: 'left', marginTop: '10px', marginLeft: '13px' }}>자주 듣는</h2>                </header>
+                    <h2 style={{ width: '100%', textAlign: 'left', marginTop: '30px', marginLeft: '13px' }}>자주 듣는</h2>                </header>
 
                 <div style={{ height: 'var(--header-bottom-margin)' }} />
                 <div style={{ width: '100%', height: '50px', maxHeight: '50px', display: 'flex', justifyContent: 'center' }}>
                     <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
                 </div>
                 <FavoriteStationList />
-                
+
 
             </main>
         </div>

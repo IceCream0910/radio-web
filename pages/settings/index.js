@@ -26,7 +26,6 @@ const Settings = () => {
         setIsSidebar(useragent.indexOf('sidebar') > -1);
 
         setTimeout(() => {
-            // theme localstorage에서 가져오기
             if (typeof window !== 'undefined' && window.localStorage.getItem('theme')) {
                 setTheme(window.localStorage.getItem('theme'));
             } else {
@@ -109,9 +108,10 @@ const Settings = () => {
             </Head>
             <main className='settings'>
                 <header>
-                    <h2 style={{ width: '100%', textAlign: 'left', marginTop: '10px', marginLeft: '13px' }}>설정</h2>
+                    <h2 style={{ width: '100%', textAlign: 'left', marginTop: '30px', marginLeft: '13px' }}>설정</h2>
                 </header>
-                <div style={{ height: 'var(--header-bottom-margin)' }} />
+
+                <div style={{ height: '80px' }} />
 
                 <section style={{ marginLeft: '10px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
 
@@ -169,10 +169,10 @@ const Settings = () => {
 
                     <br />
                     <h3 >정보</h3>
-                    <h5>1.0.1 ver.</h5>
+                    <h5>1.0.3 ver.</h5>
                     <h5>© Yun Tae In</h5>
                 </section>
-                <br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br />
             </main>
 
             {isOpenQRModal && <>
