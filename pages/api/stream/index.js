@@ -663,7 +663,7 @@ export default async function handler(req, res) {
     }
 
     if (stn == 'kookbang') {
-        result = "https://mgugaklive.nowcdn.co.kr/gugakradio/gugakradio.stream/playlist.m3u8";
+        result = "https://mediaworks.dema.mil.kr/live_edge/audio.sdp/playlist.m3u8";
         title = '국방FM';
     }
 
