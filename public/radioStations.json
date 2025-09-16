@@ -3,76 +3,76 @@
         "title": "KBS 1라디오",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=1radio",
-        "program": "/api/onair/program?stn=kbs&ch=1radio"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio"
     },
     {
         "title": "KBS HappyFM",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=2radio",
-        "program": "/api/onair/program?stn=kbs&ch=2radio"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio"
     },
     {
         "title": "KBS 3라디오",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=3radio",
-        "program": "/api/onair/program?stn=kbs&ch=3radio"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=3radio"
     },
     {
         "title": "KBS ClassicFM",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=1fm",
-        "program": "/api/onair/program?stn=kbs&ch=1fm"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm"
     },
     {
         "title": "KBS CoolFM",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=2fm",
-        "program": "/api/onair/program?stn=kbs&ch=2fm"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2fm"
     },
     {
         "title": "KBS 한민족방송",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=hanminjok",
-        "program": "/api/onair/program?stn=kbs&ch=hanminjok"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=hanminjok"
     },
     {
         "title": "MBC 표준FM",
         "city": "seoul",
         "url": "/api/stream?stn=mbc&ch=sfm",
-        "program": "/api/onair/program?stn=mbc&ch=stfm",
-        "song": "/api/onair/song?stn=mbc&ch=stfm"
+        "program": "https://radio-api.yuntae.in/program?stn=mbc&ch=stfm",
+        "song": "https://radio-api.yuntae.in/song?stn=mbc&ch=stfm"
     },
     {
         "title": "MBC FM4U",
         "city": "seoul",
         "url": "/api/stream?stn=mbc&ch=fm4u",
-        "program": "/api/onair/program?stn=mbc&ch=fm4u",
-        "song": "/api/onair/song?stn=mbc&ch=fm4u"
+        "program": "https://radio-api.yuntae.in/program?stn=mbc&ch=fm4u",
+        "song": "https://radio-api.yuntae.in/song?stn=mbc&ch=fm4u"
     },
     {
         "title": "MBC mini 올댓뮤직",
         "city": "seoul",
         "url": "/api/stream?stn=mbc&ch=chm",
-        "program": "/api/onair/program?stn=mbc&ch=cham",
-        "song": "/api/onair/song?stn=mbc&ch=cham"
+        "program": "https://radio-api.yuntae.in/program?stn=mbc&ch=cham",
+        "song": "https://radio-api.yuntae.in/song?stn=mbc&ch=cham"
     },
     {
         "title": "SBS 러브FM",
         "city": "seoul",
         "url": "/api/stream?stn=sbs&ch=lovefm",
-        "program": "/api/onair/program?stn=sbs&ch=love"
+        "program": "https://radio-api.yuntae.in/program?stn=sbs&ch=love"
     },
     {
         "title": "SBS 파워FM",
         "city": "seoul",
         "url": "/api/stream?stn=sbs&ch=powerfm",
-        "program": "/api/onair/program?stn=sbs&ch=power"
+        "program": "https://radio-api.yuntae.in/program?stn=sbs&ch=power"
     },
     {
         "title": "SBS 고릴라디오M",
         "city": "seoul",
         "url": "/api/stream?stn=sbs&ch=dmb",
-        "program": "/api/onair/program?stn=sbs&ch=dmb"
+        "program": "https://radio-api.yuntae.in/program?stn=sbs&ch=dmb"
     },
     {
         "title": "EBS FM",
@@ -143,43 +143,43 @@
         "title": "KBS부산 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=busan",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=busan"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=busan"
     },
     {
         "title": "KBS부산 2라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=2radio&city=busan",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=busan"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=busan"
     },
     {
         "title": "KBS부산 음악FM",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1fm&city=busan",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=busan"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=busan"
     },
     {
         "title": "KBS창원 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=changwon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=changwon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=changwon"
     },
     {
         "title": "KBS창원 2라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=2radio&city=changwon",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=changwon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=changwon"
     },
     {
         "title": "KBS창원 음악FM",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1fm&city=changwon",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=changwon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=changwon"
     },
     {
         "title": "KBS진주 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=jinju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jinju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=jinju"
     },
     {
         "title": "부산MBC 표준FM",
@@ -275,31 +275,31 @@
         "title": "KBS대구 1라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=daegu",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=daegu"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=daegu"
     },
     {
         "title": "KBS대구 2라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=2radio&city=daegu",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=daegu"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=daegu"
     },
     {
         "title": "KBS대구 음악FM",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1fm&city=daegu",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=daegu"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=daegu"
     },
     {
         "title": "KBS안동 1라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=andong",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=andong"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=andong"
     },
     {
         "title": "KBS포항 1라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=pohang",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=pohang"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=pohang"
     },
     {
         "title": "대구MBC 표준FM",
@@ -375,37 +375,37 @@
         "title": "KBS광주 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=gwangju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=gwangju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=gwangju"
     },
     {
         "title": "KBS광주 2라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=2radio&city=gwangju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=gwangju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=gwangju"
     },
     {
         "title": "KBS광주 음악FM",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1fm&city=gwangju",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=gwangju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=gwangju"
     },
     {
         "title": "KBS목포 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=mokpo",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=mokpo"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=mokpo"
     },
     {
         "title": "KBS목포 음악FM",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1fm&city=mokpo",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=mokpo"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=mokpo"
     },
     {
         "title": "KBS순천 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=suncheon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=suncheon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=suncheon"
     },
     {
         "title": "광주MBC 표준FM",
@@ -486,19 +486,19 @@
         "title": "KBS전주 1라디오",
         "city": "jeonbuk",
         "url": "/api/stream?stn=kbs&ch=1radio&city=jeonju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jeonju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=jeonju"
     },
     {
         "title": "KBS전주 2라디오",
         "city": "jeonbuk",
         "url": "/api/stream?stn=kbs&ch=2radio&city=jeonju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=jeonju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=jeonju"
     },
     {
         "title": "KBS전주 음악FM",
         "city": "jeonbuk",
         "url": "/api/stream?stn=kbs&ch=1fm&city=jeonju",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=jeonju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=jeonju"
     },
     {
         "title": "전주MBC 표준FM",
@@ -539,19 +539,19 @@
         "title": "KBS대전 1라디오",
         "city": "daejeon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=daejeon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=daejeon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=daejeon"
     },
     {
         "title": "KBS대전 2라디오",
         "city": "daejeon",
         "url": "/api/stream?stn=kbs&ch=2radio&city=daejeon",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=daejeon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=daejeon"
     },
     {
         "title": "KBS대전 음악FM",
         "city": "daejeon",
         "url": "/api/stream?stn=kbs&ch=1fm&city=daejeon",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=daejeon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=daejeon"
     },
     {
         "title": "대전MBC 표준FM",
@@ -597,19 +597,19 @@
         "title": "KBS청주 1라디오",
         "city": "chungbuk",
         "url": "/api/stream?stn=kbs&ch=1radio&city=cheongju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=cheongju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=cheongju"
     },
     {
         "title": "KBS청주 2라디오",
         "city": "chungbuk",
         "url": "/api/stream?stn=kbs&ch=2radio&city=cheongju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=cheongju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=cheongju"
     },
     {
         "title": "KBS청주 음악FM",
         "city": "chungbuk",
         "url": "/api/stream?stn=kbs&ch=1fm&city=cheongju",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=cheongju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=cheongju"
     },
     {
         "title": "MBC충북 표준FM",
@@ -650,31 +650,31 @@
         "title": "KBS춘천 1라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=chuncheon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=cheongju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=cheongju"
     },
     {
         "title": "KBS춘천 2라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=2radio&city=chuncheon",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=chuncheon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=chuncheon"
     },
     {
         "title": "KBS춘천 음악FM",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1fm&city=chuncheon",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=chuncheon"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=chuncheon"
     },
     {
         "title": "KBS원주 1라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=wonju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=wonju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=wonju"
     },
     {
         "title": "KBS원주 음악FM",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1fm&city=wonju",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=wonju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=wonju"
     },
     {
         "title": "춘천MBC 표준FM",
@@ -730,19 +730,19 @@
         "title": "KBS제주 1라디오",
         "city": "jeju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=jeju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jeju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1radio&city=jeju"
     },
     {
         "title": "KBS제주 2라디오",
         "city": "jeju",
         "url": "/api/stream?stn=kbs&ch=2radio&city=jeju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=jeju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=2radio&city=jeju"
     },
     {
         "title": "KBS제주 음악FM",
         "city": "jeju",
         "url": "/api/stream?stn=kbs&ch=1fm&city=jeju",
-        "program": "/api/onair/program?stn=kbs&ch=1fm&city=jeju"
+        "program": "https://radio-api.yuntae.in/program?stn=kbs&ch=1fm&city=jeju"
     },
     {
         "title": "제주MBC 표준FM",
