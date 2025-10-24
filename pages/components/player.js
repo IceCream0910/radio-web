@@ -198,7 +198,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                                 title: data.title || '제목없음',
                                 artist: player.title || '제목없음',
                                 artwork: [{
-                                    src: "/albumart.png",
+                                    src: "https://i.imgur.com/u7N8nbD.png",
                                     sizes: "500x500",
                                     type: "image/png",
                                 }]
@@ -250,7 +250,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                             title: player.title || '제목없음',
                             artist: '라디오 스트리밍 중',
                             artwork: [{
-                                src: "/albumart.png",
+                                src: "https://i.imgur.com/u7N8nbD.png",
                                 sizes: "500x500",
                                 type: "image/png",
                             }]
@@ -323,7 +323,7 @@ const HlsPlayer = forwardRef((props, ref) => {
                         title: player.title || '제목없음',
                         artist: '라디오 스트리밍 중',
                         artwork: [{
-                            src: "/albumart.png",
+                            src: "https://i.imgur.com/u7N8nbD.png",
                             sizes: "500x500",
                             type: "image/png",
                         }]
