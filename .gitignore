@@ -40,3 +40,6 @@ public/workbox-*.js
 
 .env.local
 .env
+
+# opennext
+.open-next/
