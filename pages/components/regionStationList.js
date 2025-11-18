@@ -11,7 +11,7 @@ export default function RegionStationList({ region, playFunc }) {
     const [listContext, setListContext] = useRecoilState(stationListContext);
     const [actualFavorites, setActualFavorites] = useState([])
 
-    const regionStations = radioData.filter(radio => radio.city === region);
+    const regionStations = radioData.filter(radio => radio.city === region && !radio.onlyApp);
 
     const toggleFavorites = (title) => {
         if (favorites.includes(title)) {

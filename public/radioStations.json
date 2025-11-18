@@ -130,6 +130,12 @@
         "url": "/api/stream?stn=bbs"
     },
     {
+        "title": "FEBC 서울극동방송",
+        "city": "seoul",
+        "url": "api/stream?stn=febc",
+        "onlyApp": true
+    },
+    {
         "title": "국방FM",
         "city": "seoul",
         "url": "/api/stream?stn=kookbang"
@@ -267,6 +273,24 @@
         "url": "/api/stream/?stn=cbs&ch=sfm&city=gyeongnam"
     },
     {
+        "title": "FEBC 부산극동방송",
+        "city": "busan",
+        "url": "api/stream?stn=febc&city=busan",
+        "onlyApp": true
+    },
+    {
+        "title": "FEBC 울산극동방송",
+        "city": "busan",
+        "url": "api/stream?stn=febc&city=ulsan",
+        "onlyApp": true
+    },
+    {
+        "title": "FEBC 창원극동방송",
+        "city": "busan",
+        "url": "api/stream?stn=febc&city=changwon",
+        "onlyApp": true
+    },
+    {
         "title": "국방FM",
         "city": "busan",
         "url": "/api/stream/?stn=kookbang"
@@ -324,12 +348,20 @@
     {
         "title": "포항MBC 표준FM",
         "city": "daegu",
-        "url": "/api/stream/?stn=mbc&ch=sfm"
+        "url": "/api/stream/?stn=mbc&ch=sfm&city=pohang",
+        "onlyApp": true
     },
     {
         "title": "포항MBC FM4U",
         "city": "daegu",
-        "url": "/api/stream/?stn=mbc&ch=fm4u"
+        "url": "/api/stream/?stn=mbc&ch=fm4u&city=pohang",
+        "onlyApp": true
+    },
+    {
+        "title": "TBC 드림FM",
+        "city": "daegu",
+        "url": "/api/stream/?stn=sbs&ch=powerfm&city=daegu",
+        "onlyApp": true
     },
     {
         "title": "EBS FM",
@@ -365,6 +397,18 @@
         "title": "CPBC 대구가톨릭평화방송",
         "city": "daegu",
         "url": "/api/stream/?stn=cpbc&city=daegu"
+    },
+    {
+        "title": "FEBC 대구극동방송",
+        "city": "daegu",
+        "url": "api/stream?stn=febc&city=daegu",
+        "onlyApp": true
+    },
+    {
+        "title": "FEBC 포항극동방송",
+        "city": "daegu",
+        "url": "api/stream?stn=febc&city=pohang",
+        "onlyApp": true
     },
     {
         "title": "국방FM",
@@ -468,9 +512,33 @@
         "url": "/api/stream?stn=cbs&ch=sfm&city=jeonnam"
     },
     {
+        "title": "BBS 광주불교방송",
+        "city": "gwangju",
+        "url": "/api/stream?stn=bbs&city=gwangju",
+        "onlyApp": true
+    },
+    {
+        "title": "FEBC 광주극동방송",
+        "city": "gwangju",
+        "url": "api/stream?stn=febc&city=gwangju",
+        "onlyApp": true
+    },
+    {
         "title": "FEBC 목포극동방송",
         "city": "gwangju",
         "url": "api/stream?stn=febc&city=mokpo"
+    },
+    {
+        "title": "FEBC 전남동부극동방송",
+        "city": "gwangju",
+        "url": "api/stream?stn=febc&city=jeonnam",
+        "onlyApp": true
+    },
+    {
+        "title": "FEBC 전북극동방송",
+        "city": "gwangju",
+        "url": "api/stream?stn=febc&city=jeonbuk",
+        "onlyApp": true
     },
     {
         "title": "국방FM",
@@ -582,6 +650,12 @@
         "title": "대전CBS 표준FM",
         "city": "daejeon",
         "url": "/api/stream?stn=cbs&ch=sfm&city=daejeon"
+    },
+    {
+        "title": "FEBC 대전극동방송",
+        "city": "daejeon",
+        "url": "api/stream?stn=febc&city=daejeon",
+        "onlyApp": true
     },
     {
         "title": "국방FM",
@@ -722,6 +796,12 @@
         "url": "/api/stream?stn=cbs&ch=sfm&city=youndong"
     },
     {
+        "title": "FEBC 영동극동방송",
+        "city": "gangwon",
+        "url": "api/stream?stn=febc&city=gangwon",
+        "onlyApp": true
+    },
+    {
         "title": "국방FM",
         "city": "gangwon",
         "url": "/api/stream?stn=kookbang"
@@ -773,6 +853,12 @@
         "title": "제주CBS 표준FM",
         "city": "jeju",
         "url": "/api/stream?stn=cbs&ch=sfm&city=jeju"
+    },
+    {
+        "title": "FEBC 제주극동방송",
+        "city": "jeju",
+        "url": "api/stream?stn=febc&city=jeju",
+        "onlyApp": true
     },
     {
         "title": "국방FM",

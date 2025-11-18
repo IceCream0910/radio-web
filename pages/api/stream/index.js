@@ -141,7 +141,7 @@ export default async function handler(req, res) {
                         title = '안동MBC';
                         break;
                     case 'pohang':
-                        result = "https://stream.yubinet.com:1935/live/_definst_/Radio_Am/playlist.m3u8";
+                        result = "http://stream.yubinet.com:1935/live/_definst_/Radio_Am/playlist.m3u8";
                         title = '포항MBC';
                         break;
                     case 'gwangju':
@@ -307,7 +307,7 @@ export default async function handler(req, res) {
                         title = 'UBC 그린FM';
                         break;
                     case 'daegu':
-                        result = "http://203.251.91.122:1935/on-air-Backup/fm/playlist.m3u8";
+                        result = "http://203.251.91.227:6888/live/radio-eorn-xlqltl-dbekftks-001/stream.m3u8";
                         title = 'TBC 드림FM';
                         break;
                     case 'gwangju':
@@ -673,7 +673,7 @@ export default async function handler(req, res) {
     }
 
     if (stn == 'gugak') {
-        switch(city) {
+        switch (city) {
             case 'gwangju':
                 result = "https://mgugaklive.nowcdn.co.kr/gugakgwangju/Glive.stream/playlist.m3u8";
                 title = '광주국악방송';
@@ -687,7 +687,7 @@ export default async function handler(req, res) {
                 title = '국악방송';
                 break;
         }
-        
+
     }
 
     if (result !== undefined) {
