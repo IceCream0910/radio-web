@@ -10,6 +10,7 @@ const AdSense = dynamic(() => import('./components/adSense'), { ssr: false });
 const IndexPage = () => {
   const [region, setRegion] = useState('seoul');
   const [isPCorSidebar, setIsPCorSidebar] = useState(false);
+  const [isApp, setIsApp] = useState(false);
 
   useEffect(() => {
     if (!document.querySelector(".adfit1")?.querySelector("ins")) {
@@ -30,6 +31,7 @@ const IndexPage = () => {
 
     const userAgent = navigator.userAgent.toLowerCase();
     setIsPCorSidebar(/sidebar/.test(userAgent));
+    setIsApp(userAgent.indexOf('androidnative') > -1);
   }, []);
 
   const handleRegionChange = (event) => {
@@ -89,8 +91,18 @@ const IndexPage = () => {
 
         <RegionStationList region={region} />
 
+        {isApp && (<div style={{ position: 'fixed', bottom: '80px', width: 'calc(100% - 30px)', boxSizing: 'border-box', background: "var(--nav-background-color)", padding: '10px 15px', fontSize: '14px', borderRadius: '15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} >
+          <span>새로운 버전으로 업데이트해주세요.</span>
+          <Link href="https://play.google.com/store/apps/details?id=com.icecream.simplemediaplayer" passHref>
+            <button style={{ float: 'right', backgroundColor: 'var(--button-background-color)', color: 'var(--button-text-color)', border: 'none', borderRadius: '8px', padding: '8px 12px', fontSize: '12px' }}>
+              업데이트
+            </button>
+          </Link>
+        </div>
+        )
+        }
 
-      </main>
+      </main >
       <style jsx>{`
        .scroll-button {
           position: absolute;
@@ -110,7 +122,7 @@ const IndexPage = () => {
         bottom: 15px;
      }
       `}</style>
-    </div>
+    </div >
   );
 };
 

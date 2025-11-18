@@ -1,10 +1,13 @@
 import '../styles/globals.css'
 import { RecoilRoot } from 'recoil';
-import HlsPlayer from './components/player';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
+import dynamic from 'next/dynamic';
+
+// Load player only on client to avoid SSR mismatch and allow URL-based toggling
+const HlsPlayer = dynamic(() => import('./components/player'), { ssr: false });
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -13,6 +16,7 @@ export default function App({ Component, pageProps }) {
   const [isMobile, setIsMobile] = useState(false);
   const [theme, setTheme] = useState(typeof window !== 'undefined' && window.localStorage.getItem('theme') ? window.localStorage.getItem('theme') : 'system'); // ['system', 'light', 'dark'
   const [fontSize, setFontSize] = useState(typeof window !== 'undefined' && window.localStorage.getItem('fontSize') ? parseInt(window.localStorage.getItem('fontSize')) : 0); // [0, 1, 2, 3]
+  const [hidePlayerUi, setHidePlayerUi] = useState(false); // hide player UI when showUi=0
 
   function test() {
     console.log('test');
@@ -25,6 +29,17 @@ export default function App({ Component, pageProps }) {
     const initialPage = localStorage.getItem('initialPage') || 'station';
     if (router.pathname === '/' && initialPage === 'favorites') {
       router.push('/favorites');
+    }
+
+    // Read URL param to optionally hide HlsPlayer (showUi=0)
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const showUiParam = params.get('showUi');
+      if (showUiParam === '0') {
+        setHidePlayerUi(true);
+      }
+    } catch {
+      // ignore if URLSearchParams not available
     }
   }, []);
 
@@ -94,7 +109,7 @@ export default function App({ Component, pageProps }) {
         }}
       />
       <Component {...pageProps} />
-      <HlsPlayer ref={playerRef} />
+      {!hidePlayerUi && <HlsPlayer ref={playerRef} />}
       <Toaster />
     </RecoilRoot>
   )
