@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const { stn, ch, city } = req.query;
 
     const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
-    if (!rateLimiter.isAllowed(clientIP, 60, 60000)) {
+    if (!rateLimiter.isAllowed(clientIP, 120, 60000)) {
         return res.status(429).json({
             error: 'Too many requests',
             title: ''
