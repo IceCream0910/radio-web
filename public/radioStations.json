@@ -3,13 +3,15 @@
         "title": "KBS 1라디오",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=1radio",
-        "program": "/api/onair/program?stn=kbs&ch=1radio"
+        "program": "/api/onair/program?stn=kbs&ch=1radio",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS HappyFM",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=2radio",
-        "program": "/api/onair/program?stn=kbs&ch=2radio"
+        "program": "/api/onair/program?stn=kbs&ch=2radio",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS 3라디오",
@@ -21,19 +23,22 @@
         "title": "KBS ClassicFM",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=1fm",
-        "program": "/api/onair/program?stn=kbs&ch=1fm"
+        "program": "/api/onair/program?stn=kbs&ch=1fm",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175310040_252323.jpg"
     },
     {
         "title": "KBS CoolFM",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=2fm",
-        "program": "/api/onair/program?stn=kbs&ch=2fm"
+        "program": "/api/onair/program?stn=kbs&ch=2fm",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175310111_252334.jpg"
     },
     {
         "title": "KBS 한민족방송",
         "city": "seoul",
         "url": "/api/stream?stn=kbs&ch=hanminjok",
-        "program": "/api/onair/program?stn=kbs&ch=hanminjok"
+        "program": "/api/onair/program?stn=kbs&ch=hanminjok",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175310180_252345.jpg"
     },
     {
         "title": "MBC 표준FM",
