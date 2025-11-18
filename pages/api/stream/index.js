@@ -503,27 +503,27 @@ export default async function handler(req, res) {
     if (stn == 'febc') {
         switch (city) {
             case 'busan':
-                result = "http://mlive2.febc.net:1935/live/bsfebc/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/bsfebc/playlist.m3u8";
                 title = 'FEBC 부산극동방송';
                 break;
             case 'ulsan':
-                result = "http://mlive2.febc.net:1935/live/uslive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/uslive/playlist.m3u8";
                 title = 'FEBC 울산극동방송';
                 break;
             case 'changwon':
-                result = "http://mlive2.febc.net:1935/live/cwlive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/cwlive/playlist.m3u8";
                 title = 'FEBC 창원극동방송';
                 break;
             case 'daegu':
-                result = "http://220.73.173.216:1935/live/daegulive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/daegulive/playlist.m3u8";
                 title = 'FEBC 대구극동방송';
                 break;
             case 'pohang':
-                result = "http://mlive2.febc.net:1935/live/phlive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/phlive/playlist.m3u8";
                 title = 'FEBC 포항극동방송';
                 break;
             case 'gwangju':
-                result = "http://mlive2.febc.net:1935/live/gjlive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/gjlive/playlist.m3u8";
                 title = 'FEBC 광주극동방송';
                 break;
             case 'mokpo':
@@ -531,27 +531,27 @@ export default async function handler(req, res) {
                 title = 'FEBC 목포극동방송';
                 break;
             case 'jeonnam':
-                result = "http://mlive2.febc.net:1935/live/jndblive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/jndblive/playlist.m3u8";
                 title = 'FEBC 전남동부극동방송';
                 break;
             case 'jeonbuk':
-                result = "http://mlive2.febc.net:1935/live/jblive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/jblive/playlist.m3u8";
                 title = 'FEBC 전북극동방송';
                 break;
             case 'daejeon':
-                result = "http://mlive2.febc.net:1935/live/djlive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/djlive/playlist.m3u8";
                 title = 'FEBC 대전극동방송';
                 break;
             case 'gangwon':
-                result = "http://mlive2.febc.net:1935/live/ydlive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/ydlive/playlist.m3u8";
                 title = 'FEBC 영동극동방송';
                 break;
             case 'jeju':
-                result = "http://mlive2.febc.net:1935/live/jejufm/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/jejufm/playlist.m3u8";
                 title = 'FEBC 제주극동방송FM';
                 break;
             default:
-                result = "http://mlive2.febc.net:1935/live/seoulfm/playlist.m3u8";
+                result = "https://mlive3.febc.net/live5/seoulfm/playlist.m3u8";
                 title = 'FEBC 서울극동방송FM';
                 break;
         }

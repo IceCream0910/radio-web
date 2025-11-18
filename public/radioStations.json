@@ -132,8 +132,7 @@
     {
         "title": "FEBC 서울극동방송",
         "city": "seoul",
-        "url": "api/stream?stn=febc",
-        "onlyApp": true
+        "url": "api/stream?stn=febc"
     },
     {
         "title": "국방FM",
@@ -275,20 +274,17 @@
     {
         "title": "FEBC 부산극동방송",
         "city": "busan",
-        "url": "api/stream?stn=febc&city=busan",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=busan"
     },
     {
         "title": "FEBC 울산극동방송",
         "city": "busan",
-        "url": "api/stream?stn=febc&city=ulsan",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=ulsan"
     },
     {
         "title": "FEBC 창원극동방송",
         "city": "busan",
-        "url": "api/stream?stn=febc&city=changwon",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=changwon"
     },
     {
         "title": "국방FM",
@@ -401,14 +397,12 @@
     {
         "title": "FEBC 대구극동방송",
         "city": "daegu",
-        "url": "api/stream?stn=febc&city=daegu",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=daegu"
     },
     {
         "title": "FEBC 포항극동방송",
         "city": "daegu",
-        "url": "api/stream?stn=febc&city=pohang",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=pohang"
     },
     {
         "title": "국방FM",
@@ -520,8 +514,7 @@
     {
         "title": "FEBC 광주극동방송",
         "city": "gwangju",
-        "url": "api/stream?stn=febc&city=gwangju",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=gwangju"
     },
     {
         "title": "FEBC 목포극동방송",
@@ -531,14 +524,12 @@
     {
         "title": "FEBC 전남동부극동방송",
         "city": "gwangju",
-        "url": "api/stream?stn=febc&city=jeonnam",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=jeonnam"
     },
     {
         "title": "FEBC 전북극동방송",
         "city": "gwangju",
-        "url": "api/stream?stn=febc&city=jeonbuk",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=jeonbuk"
     },
     {
         "title": "국방FM",
@@ -654,8 +645,7 @@
     {
         "title": "FEBC 대전극동방송",
         "city": "daejeon",
-        "url": "api/stream?stn=febc&city=daejeon",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=daejeon"
     },
     {
         "title": "국방FM",
@@ -798,8 +788,7 @@
     {
         "title": "FEBC 영동극동방송",
         "city": "gangwon",
-        "url": "api/stream?stn=febc&city=gangwon",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=gangwon"
     },
     {
         "title": "국방FM",
@@ -857,8 +846,7 @@
     {
         "title": "FEBC 제주극동방송",
         "city": "jeju",
-        "url": "api/stream?stn=febc&city=jeju",
-        "onlyApp": true
+        "url": "api/stream?stn=febc&city=jeju"
     },
     {
         "title": "국방FM",
