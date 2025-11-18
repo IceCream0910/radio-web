@@ -171,13 +171,15 @@
         "title": "KBS부산 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=busan",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=busan"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=busan",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS부산 2라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=2radio&city=busan",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=busan"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=busan",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS부산 음악FM",
@@ -189,13 +191,15 @@
         "title": "KBS창원 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=changwon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=changwon"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=changwon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS창원 2라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=2radio&city=changwon",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=changwon"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=changwon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS창원 음악FM",
@@ -207,7 +211,8 @@
         "title": "KBS진주 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=jinju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jinju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jinju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "부산MBC 표준FM",
@@ -336,13 +341,15 @@
         "title": "KBS대구 1라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=daegu",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=daegu"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=daegu",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS대구 2라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=2radio&city=daegu",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=daegu"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=daegu",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS대구 음악FM",
@@ -354,13 +361,15 @@
         "title": "KBS안동 1라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=andong",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=andong"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=andong",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS포항 1라디오",
         "city": "daegu",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=pohang",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=pohang"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=pohang",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "대구MBC 표준FM",
@@ -465,13 +474,15 @@
         "title": "KBS광주 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=gwangju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=gwangju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=gwangju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS광주 2라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=2radio&city=gwangju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=gwangju"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=gwangju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS광주 음악FM",
@@ -483,7 +494,8 @@
         "title": "KBS목포 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=mokpo",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=mokpo"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=mokpo",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS목포 음악FM",
@@ -495,7 +507,8 @@
         "title": "KBS순천 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=suncheon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=suncheon"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=suncheon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "광주MBC 표준FM",
@@ -610,13 +623,15 @@
         "title": "KBS전주 1라디오",
         "city": "jeonbuk",
         "url": "/api/stream?stn=kbs&ch=1radio&city=jeonju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jeonju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jeonju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS전주 2라디오",
         "city": "jeonbuk",
         "url": "/api/stream?stn=kbs&ch=2radio&city=jeonju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=jeonju"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=jeonju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS전주 음악FM",
@@ -668,13 +683,15 @@
         "title": "KBS대전 1라디오",
         "city": "daejeon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=daejeon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=daejeon"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=daejeon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS대전 2라디오",
         "city": "daejeon",
         "url": "/api/stream?stn=kbs&ch=2radio&city=daejeon",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=daejeon"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=daejeon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS대전 음악FM",
@@ -737,13 +754,15 @@
         "title": "KBS청주 1라디오",
         "city": "chungbuk",
         "url": "/api/stream?stn=kbs&ch=1radio&city=cheongju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=cheongju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=cheongju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS청주 2라디오",
         "city": "chungbuk",
         "url": "/api/stream?stn=kbs&ch=2radio&city=cheongju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=cheongju"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=cheongju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS청주 음악FM",
@@ -795,13 +814,15 @@
         "title": "KBS춘천 1라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=chuncheon",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=cheongju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=chuncheon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS춘천 2라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=2radio&city=chuncheon",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=chuncheon"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=chuncheon",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS춘천 음악FM",
@@ -813,7 +834,8 @@
         "title": "KBS원주 1라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=wonju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=wonju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=wonju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS원주 음악FM",
@@ -876,13 +898,15 @@
         "title": "KBS제주 1라디오",
         "city": "jeju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=jeju",
-        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jeju"
+        "program": "/api/onair/program?stn=kbs&ch=1radio&city=jeju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {
         "title": "KBS제주 2라디오",
         "city": "jeju",
         "url": "/api/stream?stn=kbs&ch=2radio&city=jeju",
-        "program": "/api/onair/program?stn=kbs&ch=2radio&city=jeju"
+        "program": "/api/onair/program?stn=kbs&ch=2radio&city=jeju",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2023/3/23/1679532130821_334980.jpg"
     },
     {
         "title": "KBS제주 음악FM",
@@ -905,7 +929,8 @@
     {
         "title": "JIBS 뉴파워FM",
         "city": "jeju",
-        "url": "/api/stream?stn=sbs&ch=powerfm&city=jeju"
+        "url": "/api/stream?stn=sbs&ch=powerfm&city=jeju",
+        "artwork": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFTiJuPietgrsvONKOIMt01OQTFBbEeSVeGA&s"
     },
     {
         "title": "EBS FM",
