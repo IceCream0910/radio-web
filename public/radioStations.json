@@ -142,7 +142,8 @@
     {
         "title": "iFM 경인방송",
         "city": "seoul",
-        "url": "/api/stream?stn=ifm"
+        "url": "/api/stream?stn=ifm",
+        "artwork": "https://play-lh.googleusercontent.com/jKAuRd6x7n9BiHVZUjx4pXKN9vgLI6GMHXxtvSB96LmshRyd-iX0X8X7z9TT4gqkAXE"
     },
     {
         "title": "BBS 서울불교방송",
@@ -166,6 +167,12 @@
         "title": "국악방송",
         "city": "seoul",
         "url": "/api/stream?stn=gugak"
+    },
+    {
+        "title": "AFN FM Humphreys",
+        "city": "seoul",
+        "url": "/api/stream?stn=afn&city=humphreys",
+        "artwork": "https://afngo.net/static/media/Humphreys.80cba9f67149f1bf7018.png"
     },
     {
         "title": "KBS부산 1라디오",
@@ -471,6 +478,12 @@
         "artwork": "https://play-lh.googleusercontent.com/xcQa5aUfLl3LMoVfGL605TcK1d6FWwJkxCwME9pU5ZqaJstav1oRK96aP5JsxXJyukY"
     },
     {
+        "title": "AFN FM Daegu",
+        "city": "daegu",
+        "url": "/api/stream?stn=afn&city=daegu",
+        "artwork": "https://afngo.net/static/media/Daegu.a7760925d290c080560b.png"
+    },
+    {
         "title": "KBS광주 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=gwangju",
@@ -655,7 +668,7 @@
         "title": "JTV 매직FM",
         "city": "jeonbuk",
         "url": "/api/stream?stn=sbs&ch=powerfm&city=jeonju",
-        "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw"
+        "artwork": "https://www.jtv.co.kr/2021/layouts/bluebDesign/image/sub/jtv_info_ci.jpg"
     },
     {
         "title": "EBS FM",
@@ -678,6 +691,12 @@
         "city": "jeonbuk",
         "url": "/api/stream?stn=kookbang",
         "artwork": "https://play-lh.googleusercontent.com/xcQa5aUfLl3LMoVfGL605TcK1d6FWwJkxCwME9pU5ZqaJstav1oRK96aP5JsxXJyukY"
+    },
+    {
+        "title": "AFN FM Kunsan",
+        "city": "kunsan",
+        "url": "/api/stream?stn=afn&city=kunsan",
+        "artwork": "https://afngo.net/static/media/Kunsan.30c1f4d9b3e7b8d6152e.png"
     },
     {
         "title": "KBS대전 1라디오",
@@ -831,6 +850,17 @@
         "program": "/api/onair/program?stn=kbs&ch=1fm&city=chuncheon"
     },
     {
+        "title": "KBS강릉 1라디오",
+        "city": "gangwon",
+        "url": "/api/stream?stn=kbs&ch=2radio&city=gangneung",
+        "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
+    },
+    {
+        "title": "KBS강릉 음악FM",
+        "city": "gangwon",
+        "url": "/api/stream?stn=kbs&ch=1fm&city=gangneung"
+    },
+    {
         "title": "KBS원주 1라디오",
         "city": "gangwon",
         "url": "/api/stream?stn=kbs&ch=1radio&city=wonju",
@@ -854,6 +884,34 @@
         "city": "gangwon",
         "url": "/api/stream?stn=mbc&ch=fm4u&city=chuncheon",
         "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw"
+    },
+    {
+        "title": "원주MBC 표준FM",
+        "city": "gangwon",
+        "url": "/api/stream?stn=mbc&ch=sfm&city=wonju",
+        "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw",
+        "onlyApp": true
+    },
+    {
+        "title": "원주MBC FM4U",
+        "city": "gangwon",
+        "url": "/api/stream?stn=mbc&ch=fm4u&city=wonju",
+        "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw",
+        "onlyApp": true
+    },
+    {
+        "title": "강원영동MBC 표준FM",
+        "city": "gangwon",
+        "url": "/api/stream?stn=mbc&ch=sfm&city=gangneung",
+        "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw",
+        "onlyApp": true
+    },
+    {
+        "title": "강원영동MBC FM4U",
+        "city": "gangwon",
+        "url": "/api/stream?stn=mbc&ch=fm4u&city=gangneung",
+        "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw",
+        "onlyApp": true
     },
     {
         "title": "G1 프레쉬FM",

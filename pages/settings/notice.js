@@ -4,6 +4,21 @@ import IonIcon from '@reacticons/ionicons';
 
 const NoticeData = [
   {
+    question: '25년 11월 업데이트 내역',
+    date: '2025.11.19',
+    answer: `
+    <h3 style="margin-bottom: 10px;">안드로이드 앱 v2.0.1</h3>
+      더 나은 사용자 경험을 제공하기 위해 앱을 완전히 다시 설계했어요.<br/>
+- 시스템 미디어 제어 시 이전/다음 스테이션 이동 기능 지원<br/>
+- 앱 실행 시 마지막으로 듣던 스테이션 자동 재생 옵션 추가<br/>
+- Android Auto에서 자주 듣는 스테이션 목록 표시<br/>
+- UI/UX 및 안정성 개선<br/><br/>
+
+<h3 style="margin-bottom: 10px;">공통</h3>
+- 신규 스테이션 추가
+       `,
+  },
+  {
     question: '25년 9월 업데이트 내역',
     date: '2025.09.05',
     answer: `

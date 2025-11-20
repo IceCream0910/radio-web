@@ -121,7 +121,7 @@ export default async function handler(req, res) {
             case 'sfm': // MBC 표준FM
                 switch (city) {
                     case 'busan':
-                        result = "https://stream.bsmbc.com/live/mp4:BusanMBC-LiveStream-AM/playlist.m3u8";
+                        result = "https://brook.bsmbc.com/live/BusanMBC_AM_onairstream.sbhhsq/playlist.m3u8";
                         title = '부산MBC';
                         break;
                     case 'ulsan':
@@ -173,11 +173,11 @@ export default async function handler(req, res) {
                         title = '춘천MBC';
                         break;
                     case 'wonju':
-                        result = "mms://live.wjmbc.co.kr/fm2";
+                        result = "http://live.wjmbc.co.kr:1935/fm2/fm2/playlist.m3u8";
                         title = '원주MBC';
                         break;
                     case 'gangneung':
-                        result = "https://vod.mbceg.co.kr:1443/amlive/livestream/playlist.m3u8";
+                        result = "http://123.254.72.24:1935/amlive/livestream/playlist.m3u8";
                         title = 'MBC강원영동';
                         break;
                     case 'jeju':
@@ -196,7 +196,7 @@ export default async function handler(req, res) {
             case 'fm4u':  // MBC FM4U
                 switch (city) {
                     case 'busan':
-                        result = "https://stream.bsmbc.com/live/mp4:BusanMBC-LiveStream-FM/playlist.m3u8";
+                        result = "https://brook.bsmbc.com/live/BusanMBC_FM_onairstream.sbhhsq/playlist.m3u8";
                         title = '부산MBC';
                         break;
                     case 'ulsan':
@@ -248,11 +248,11 @@ export default async function handler(req, res) {
                         title = '춘천MBC';
                         break;
                     case 'wonju':
-                        result = "mms://live.wjmbc.co.kr/fm989";
+                        result = "http://live.wjmbc.co.kr:1935/fm989/fm989/playlist.m3u8";
                         title = '원주MBC';
                         break;
                     case 'gangneung':
-                        result = "https://vod.mbceg.co.kr:1443/fmlive/livestream/playlist.m3u8";
+                        result = "http://123.254.72.24:1935/fmlive/livestream/playlist.m3u8";
                         title = 'MBC강원영동';
                         break;
                     case 'jeju':
@@ -632,11 +632,11 @@ export default async function handler(req, res) {
                 title = 'AFN Humphreys';
                 break;
             case 'daegu':
-                result = "https://24933.live.streamtheworld.com/AFNP_DGU_SC";
+                result = "https://18433.live.streamtheworld.com/AFNP_DGUAAC.aac";
                 title = 'AFN Daegu';
                 break;
             case 'kunsan':
-                result = "https://29053.live.streamtheworld.com/AFNP_KSN_SC";
+                result = "https://27863.live.streamtheworld.com/AFNP_KSNAAC.aac";
                 title = 'AFN Kunsan';
                 break;
         }
