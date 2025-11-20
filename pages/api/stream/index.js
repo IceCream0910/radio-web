@@ -181,7 +181,7 @@ export default async function handler(req, res) {
                         title = 'MBC강원영동';
                         break;
                     case 'jeju':
-                        result = "https://wowza.jejumbc.com/live/_definst_/mp3:radio1/playlist.m3u8";
+                        result = "https://onairfm.jejumbc.com/hls/onairfmjejumbc/index.m3u8";
                         title = '제주MBC';
                         break;
                     default:
@@ -256,7 +256,7 @@ export default async function handler(req, res) {
                         title = 'MBC강원영동';
                         break;
                     case 'jeju':
-                        result = "https://wowza.jejumbc.com/live/_definst_/mp3:radio2/playlist.m3u8";
+                        result = "https://onairsfm.jejumbc.com/hls/onairsfmjejumbc/1_2/index.m3u8";
                         title = '제주MBC';
                         break;
                     default:
