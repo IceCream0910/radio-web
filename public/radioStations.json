@@ -169,12 +169,6 @@
         "url": "/api/stream?stn=gugak"
     },
     {
-        "title": "AFN FM Humphreys",
-        "city": "seoul",
-        "url": "/api/stream?stn=afn&city=humphreys",
-        "artwork": "https://afngo.net/static/media/Humphreys.80cba9f67149f1bf7018.png"
-    },
-    {
         "title": "KBS부산 1라디오",
         "city": "busan",
         "url": "/api/stream/?stn=kbs&ch=1radio&city=busan",
@@ -478,12 +472,6 @@
         "artwork": "https://play-lh.googleusercontent.com/xcQa5aUfLl3LMoVfGL605TcK1d6FWwJkxCwME9pU5ZqaJstav1oRK96aP5JsxXJyukY"
     },
     {
-        "title": "AFN FM Daegu",
-        "city": "daegu",
-        "url": "/api/stream?stn=afn&city=daegu",
-        "artwork": "https://afngo.net/static/media/Daegu.a7760925d290c080560b.png"
-    },
-    {
         "title": "KBS광주 1라디오",
         "city": "gwangju",
         "url": "/api/stream?stn=kbs&ch=1radio&city=gwangju",
@@ -691,12 +679,6 @@
         "city": "jeonbuk",
         "url": "/api/stream?stn=kookbang",
         "artwork": "https://play-lh.googleusercontent.com/xcQa5aUfLl3LMoVfGL605TcK1d6FWwJkxCwME9pU5ZqaJstav1oRK96aP5JsxXJyukY"
-    },
-    {
-        "title": "AFN FM Kunsan",
-        "city": "kunsan",
-        "url": "/api/stream?stn=afn&city=kunsan",
-        "artwork": "https://afngo.net/static/media/Kunsan.30c1f4d9b3e7b8d6152e.png"
     },
     {
         "title": "KBS대전 1라디오",
