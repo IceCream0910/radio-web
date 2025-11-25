@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 
 // Load player only on client to avoid SSR mismatch and allow URL-based toggling
 const HlsPlayer = dynamic(() => import('./components/player'), { ssr: false });
+const AdSense = dynamic(() => import('./components/adSense'), { ssr: false });
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -31,7 +32,6 @@ export default function App({ Component, pageProps }) {
       router.push('/favorites');
     }
 
-    // Read URL param to optionally hide HlsPlayer (showUi=0)
     try {
       const params = new URLSearchParams(window.location.search);
       const showUiParam = params.get('showUi');
@@ -39,7 +39,6 @@ export default function App({ Component, pageProps }) {
         setHidePlayerUi(true);
       }
     } catch {
-      // ignore if URLSearchParams not available
     }
   }, []);
 
@@ -109,6 +108,14 @@ export default function App({ Component, pageProps }) {
         }}
       />
       <Component {...pageProps} />
+      {router.pathname === '/' || router.pathname === '/favorites' ? 
+      <div style={{ position: 'fixed', top: `${router.pathname === '/' ? '130px' : '80px'}`, width: '100%', height: '60px', maxHeight: '70px', display: 'flex', justifyContent: 'center' }}>
+        <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
+      </div>
+       :
+        null
+      }
+      
       {!hidePlayerUi && <HlsPlayer ref={playerRef} />}
       <Toaster />
     </RecoilRoot>

@@ -3,9 +3,6 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import RegionStationList from './components/regionStationList';
 import IonIcon from '@reacticons/ionicons';
-import dynamic from 'next/dynamic';
-
-const AdSense = dynamic(() => import('./components/adSense'), { ssr: false });
 
 const IndexPage = () => {
   const [region, setRegion] = useState('seoul');
@@ -13,22 +10,6 @@ const IndexPage = () => {
   const [isApp, setIsApp] = useState(false);
 
   useEffect(() => {
-    if (!document.querySelector(".adfit1")?.querySelector("ins")) {
-      const ins = document.createElement("ins");
-      const scr = document.createElement("script");
-      ins.className = "kakao_ad_area";
-      ins.style.display = "none";
-      ins.style.width = "100%";
-      scr.async = true;
-      scr.type = "text/javascript";
-      scr.src = "https://t1.daumcdn.net/kas/static/ba.min.js";
-      ins.setAttribute("data-ad-width", "320");
-      ins.setAttribute("data-ad-height", "50");
-      ins.setAttribute("data-ad-unit", "DAN-obadITFjOoIwJTz4");
-      document.querySelector(".adfit1")?.appendChild(ins);
-      document.querySelector(".adfit1")?.appendChild(scr);
-    }
-
     const userAgent = navigator.userAgent.toLowerCase();
     setIsPCorSidebar(/sidebar/.test(userAgent));
     setIsApp(userAgent.indexOf('androidnative') > -1);
@@ -58,7 +39,7 @@ const IndexPage = () => {
 
       <main>
         <header>
-          <h2 style={{ width: '100%', textAlign: 'left', marginTop: '30px', marginLeft: '13px' }}>스테이션</h2>
+          <h2 style={{ width: '100%', textAlign: 'left', marginTop: '20px', marginLeft: '13px' }}>스테이션</h2>
           <div className="region-select">
             {isPCorSidebar && (<>
               <button className="scroll-button left" onClick={() => document.querySelector('.region-select').scrollBy({ left: -300, behavior: 'smooth' })}>
@@ -83,11 +64,7 @@ const IndexPage = () => {
         </header>
 
 
-        <div style={{ height: '120px' }} />
-
-        <div style={{ width: '100%', height: '50px', maxHeight: '50px', display: 'flex', justifyContent: 'center' }}>
-          <AdSense adClient="ca-pub-7178712602934912" adSlot="8750400165" />
-        </div>
+        <div style={{ height: '180px' }} />
 
         <RegionStationList region={region} />
 
