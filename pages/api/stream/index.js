@@ -129,7 +129,7 @@ export default async function handler(req, res) {
                         title = '울산MBC';
                         break;
                     case 'changwon':
-                        result = "https://624a79c87201d.streamlock.net/MBCFM/TV2.stream/playlist.m3u8";
+                        result = "https://wowza.mbcgn.kr/MBCFM/TV2.stream/playlist.m3u8";
                         title = 'MBC경남';
                         break;
                     case 'daegu':
@@ -204,7 +204,7 @@ export default async function handler(req, res) {
                         title = '울산MBC';
                         break;
                     case 'changwon':
-                        result = "https://624a79c87201d.streamlock.net/MBCFM4U/TV3.stream/playlist.m3u8";
+                        result = "https://wowza.mbcgn.kr/MBCFM4U/TV3.stream/playlist.m3u8";
                         title = 'MBC경남';
                         break;
                     case 'daegu':
