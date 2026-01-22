@@ -29,6 +29,6 @@
     "@types/react": "18.2.42",
     "next-pwa": "^5.6.0",
     "typescript": "5.3.3",
-    "wrangler": "^4.45.0"
+    "wrangler": "^4.59.1"
   }
 }
