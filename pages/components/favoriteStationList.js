@@ -4,7 +4,7 @@ import { playerData, favoritesData, stationListContext } from '../../states/stat
 import { useMemo } from 'react';
 import toast from 'react-hot-toast';
 
-const allRadioStations = require('/public/radioStations.json');
+const allRadioStations = require('../../public/radioStations.json');
 const uniqueRadioStations = Array.from(new Map(allRadioStations.map(station => [station.title, station])).values());
 
 export default function FavoriteStationList() {

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 export default function RegionStationList({ region, playFunc }) {
-    const radioData = require('/public/radioStations.json');
+    const radioData = require('../../public/radioStations.json');
     const [player, setPlayer] = useRecoilState(playerData);
     const [favorites, setFavorites] = useRecoilState(favoritesData);
     const [listContext, setListContext] = useRecoilState(stationListContext);
