@@ -658,7 +658,7 @@ export default async function handler(req, res) {
     }
 
     if (stn == 'obs') {
-        result = "https://vod3.obs.co.kr:444/live/obsstream1/radio.stream/playlist.m3u8";
+        result = "https://vod.obs.co.kr:444/live/obsstream1/radio.stream/playlist.m3u8";
         title = 'OBS 라디오';
     }
 
