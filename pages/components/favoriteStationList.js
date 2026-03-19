@@ -1,16 +1,13 @@
 import IonIcon from '@reacticons/ionicons';
-import { useRecoilState } from 'recoil';
-import { playerData, favoritesData, stationListContext } from '../../states/states';
 import { useMemo } from 'react';
-import toast from 'react-hot-toast';
+import toast from '../../lib/toast';
+import { useAppState } from '../../states/appState';
 
 const allRadioStations = require('../../public/radioStations.json');
 const uniqueRadioStations = Array.from(new Map(allRadioStations.map(station => [station.title, station])).values());
 
 export default function FavoriteStationList() {
-    const [player, setPlayer] = useRecoilState(playerData);
-    const [favorites, setFavorites] = useRecoilState(favoritesData);
-    const [listContext, setListContext] = useRecoilState(stationListContext);
+    const { player, setPlayer, favorites, setFavorites, setListContext } = useAppState();
 
     const toggleFavorites = (stationTitle) => {
         toast.dismiss();

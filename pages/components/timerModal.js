@@ -1,6 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import React, { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast from '../../lib/toast';
 
 export default function TimerModal({ closeModal }) {
     const [selectedHour, setSelectedHour] = useState(1);

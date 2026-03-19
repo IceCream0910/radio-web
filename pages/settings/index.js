@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import toast from 'react-hot-toast';
+import toast from '../../lib/toast';
 import '@material/web/switch/switch.js';
 import IonIcon from '@reacticons/ionicons';
 import Link from 'next/link';

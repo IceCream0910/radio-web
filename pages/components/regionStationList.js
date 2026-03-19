@@ -1,14 +1,11 @@
 import IonIcon from '@reacticons/ionicons';
-import { useRecoilState } from 'recoil';
-import { playerData, favoritesData, stationListContext } from '../../states/states';
 import { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
+import toast from '../../lib/toast';
+import { useAppState } from '../../states/appState';
 
 export default function RegionStationList({ region, playFunc }) {
     const radioData = require('../../public/radioStations.json');
-    const [player, setPlayer] = useRecoilState(playerData);
-    const [favorites, setFavorites] = useRecoilState(favoritesData);
-    const [listContext, setListContext] = useRecoilState(stationListContext);
+    const { player, setPlayer, favorites, setFavorites, setListContext } = useAppState();
     const [actualFavorites, setActualFavorites] = useState([])
 
     const regionStations = radioData.filter(radio => radio.city === region && !radio.onlyApp);

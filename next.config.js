@@ -3,8 +3,7 @@ const withPWA = require("next-pwa");
 
 const nextConfig = withPWA({
   dest: "public",
-  runtimeCaching: [],
-  turbopack: {}
+  runtimeCaching: []
 })();
 
 module.exports = nextConfig

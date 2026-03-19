@@ -1,14 +1,17 @@
 import '../styles/globals.css'
-import { RecoilRoot } from 'recoil';
+import { AppStateProvider } from '../states/appState';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
 
 // Load player only on client to avoid SSR mismatch and allow URL-based toggling
 const HlsPlayer = dynamic(() => import('./components/player'), { ssr: false });
 const AdSense = dynamic(() => import('./components/adSense'), { ssr: false });
+const ClientToaster = dynamic(
+  () => import('react-hot-toast').then((mod) => mod.Toaster),
+  { ssr: false }
+);
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -87,7 +90,7 @@ export default function App({ Component, pageProps }) {
 
 
   return (
-    <RecoilRoot>
+    <AppStateProvider>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy="afterInteractive"
@@ -117,7 +120,7 @@ export default function App({ Component, pageProps }) {
       }
       
       {!hidePlayerUi && <HlsPlayer ref={playerRef} />}
-      <Toaster />
-    </RecoilRoot>
+      <ClientToaster />
+    </AppStateProvider>
   )
 }

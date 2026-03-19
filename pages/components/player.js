@@ -3,16 +3,13 @@ import Hls from 'hls.js';
 import SwipeableBottomSheet from 'react-swipeable-bottom-sheet';
 import IonIcon from '@reacticons/ionicons'
 import BottomNav from './bottomNav';
-import { useRecoilState } from 'recoil';
-import { playerData, favoritesData, stationListContext } from '../../states/states';
-import toast from 'react-hot-toast';
+import toast from '../../lib/toast';
 import '@material/web/ripple/ripple.js';
 import TimerModal from './timerModal';
+import { useAppState } from '../../states/appState';
 
 const HlsPlayer = forwardRef((props, ref) => {
-    const [player, setPlayer] = useRecoilState(playerData);
-    const [favorites, setFavorites] = useRecoilState(favoritesData);
-    const [listContext, setListContext] = useRecoilState(stationListContext);
+    const { player, setPlayer, favorites, setFavorites, listContext, setListContext } = useAppState();
     const [actualFavorites, setActualFavorites] = useState([])
 
     const videoRef = useRef(null);
