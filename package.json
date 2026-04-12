@@ -13,9 +13,8 @@
   },
   "dependencies": {
     "@material/web": "^1.0.1",
-    "@opennextjs/cloudflare": "^1.17.1",
+    "@opennextjs/cloudflare": "^1.19.0",
     "@reacticons/ionicons": "^7.1.0",
-    "@supabase/supabase-js": "^2.39.1",
     "babel-plugin-styled-components": "^2.1.4",
     "hls.js": "^1.4.12",
     "next": "16.2.3",
