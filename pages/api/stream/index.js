@@ -307,7 +307,7 @@ export default async function handler(req, res) {
                         title = 'UBC 그린FM';
                         break;
                     case 'daegu':
-                        result = "http://203.251.91.227:6888/live/radio-eorn-xlqltl-dbekftks-001/stream.m3u8";
+                        result = "http://203.251.91.122:1935/on-air-Backup/fm/playlist.m3u8";
                         title = 'TBC 드림FM';
                         break;
                     case 'gwangju':
