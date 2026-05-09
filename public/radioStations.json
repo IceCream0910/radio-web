@@ -222,7 +222,7 @@
         "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw"
     },
     {
-        "title": "부산MBC FM4U",
+        "title": "부산MBC 음악FM",
         "city": "busan",
         "url": "/api/stream/?stn=mbc&ch=fm4u&city=busan",
         "artwork": "https://play-lh.googleusercontent.com/PaeesJyriadJpcnyxbpwmTuCMNPXc3fPuS8_Q2vRYfCkVdgiqyBac5WapQjJSoZx2d01=w480-h960-rw"
@@ -447,11 +447,6 @@
         "title": "포항CBS 표준FM",
         "city": "daegu",
         "url": "/api/stream/?stn=cbs&ch=sfm&city=pohang"
-    },
-    {
-        "title": "CPBC 대구가톨릭평화방송",
-        "city": "daegu",
-        "url": "/api/stream/?stn=cpbc&city=daegu"
     },
     {
         "title": "FEBC 대구극동방송",
@@ -728,6 +723,11 @@
         "title": "TBN 대전교통방송",
         "city": "daejeon",
         "url": "/api/stream?stn=tbn&city=daejeon"
+    },
+    {
+        "title": "TBN 충남교통방송",
+        "city": "daejeon",
+        "url": "/api/stream?stn=tbn&city=chungnam"
     },
     {
         "title": "대전CBS 표준FM",
