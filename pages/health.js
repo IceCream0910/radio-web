@@ -12,8 +12,6 @@ import {
     Search,
 } from "lucide-react";
 
-const HEALTH_API = "https://radio.yuntae.in/api/health";
-
 export default function RadioHealthDashboard() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,14 +20,14 @@ export default function RadioHealthDashboard() {
 
     const fetchHealth = async () => {
         try {
-            const response = await fetch(HEALTH_API, {
+            const response = await fetch('/api/health', {
                 cache: "no-store",
             });
 
             const json = await response.json();
 
             setData(json);
-            setLastUpdated(json.updatedAt ? new Date(json.updatedAt) : new Date());
+            setLastUpdated(json.refreshed_at ? new Date(json.refreshed_at) : new Date());
         } catch (e) {
             console.error(e);
         } finally {
@@ -54,11 +52,13 @@ export default function RadioHealthDashboard() {
     const stations = useMemo(() => {
         if (!data?.results) return [];
 
-        return Object.entries(data.results)
-            .map(([title, value]) => ({
-                title,
-                ...value,
-            }))
+        return data.results
+            .map(station => {
+                let uiStatus = "unhealthy";
+                if (station.ok) uiStatus = "healthy";
+                else if (station.status === "never_checked") uiStatus = "stale";
+                return { ...station, uiStatus };
+            })
             .filter((station) =>
                 station.title
                     .toLowerCase()
@@ -71,7 +71,7 @@ export default function RadioHealthDashboard() {
                     healthy: 2,
                 };
 
-                return priority[a.status] - priority[b.status];
+                return priority[a.uiStatus] - priority[b.uiStatus];
             });
     }, [data, query]);
 
@@ -83,7 +83,7 @@ export default function RadioHealthDashboard() {
         };
 
         stations.forEach((station) => {
-            counts[station.status]++;
+            counts[station.uiStatus]++;
         });
 
         return counts;
@@ -136,8 +136,14 @@ export default function RadioHealthDashboard() {
                         </div>
 
                         <div style={{ fontSize: '0.875rem', color: '#71717a', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Activity style={{ width: '1rem', height: '1rem' }} />
-                            {lastUpdated
+                            {data?.checking ? (
+                                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}>
+                                    <RefreshCw style={{ width: '1rem', height: '1rem' }} />
+                                </motion.div>
+                            ) : (
+                                <Activity style={{ width: '1rem', height: '1rem' }} />
+                            )}
+                            {data?.checking ? "상태 확인 중..." : lastUpdated
                                 ? `업데이트: ${lastUpdated.toLocaleTimeString()}`
                                 : "Loading..."}
                         </div>
@@ -205,7 +211,7 @@ function StationCard({ station, index }) {
         },
     };
 
-    const style = styles[station.status];
+    const style = styles[station.uiStatus];
 
     return (
         <motion.div
@@ -226,30 +232,40 @@ function StationCard({ station, index }) {
                             {station.title}
                         </h2>
 
-                        <div style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#71717a', wordBreak: 'break-all' }}>
-                            {station.url}
+                        <div
+                            onClick={() => window.open(station.source_url, '_blank')}
+                            style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#71717a', wordBreak: 'break-all', cursor: 'pointer', textDecoration: 'underline', textDecorationStyle: 'dotted' }}>
+                            {station.source_url}
                         </div>
                     </div>
 
-                    <div
-                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '9999px', border: '1px solid', padding: '0.25rem 0.75rem', fontSize: '0.75rem', fontWeight: 500, ...style.badge }}
-                    >
-                        <span
-                            style={{ width: '0.5rem', height: '0.5rem', borderRadius: '9999px', ...style.dot }}
-                        />
-                        {station.status === "healthy" ? "온라인" : station.status === "stale" ? "-" : "오프라인"}
-                    </div>
+                    <span
+                        style={{ width: '1.5rem', aspectRatio: '1/1', borderRadius: '9999px', ...style.dot }}
+                    />
                 </div>
 
-                <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.875rem' }}>
-                    <div style={{ color: '#71717a' }}>
-                        마지막 확인:
+                {station.error && (
+                    <div style={{ marginTop: '1rem', padding: '0.75rem', borderRadius: '0.5rem', backgroundColor: 'rgba(239, 68, 68, 0.1)', color: '#fca5a5', fontSize: '0.875rem', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+                        {station.error}
                     </div>
+                )}
 
-                    <div style={{ color: '#d4d4d8' }}>
-                        {station.checkedAt
-                            ? new Date(station.checkedAt).toLocaleString()
-                            : "아직 확인되지 않음"}
+                <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.875rem' }}>
+                        <div style={{ color: '#71717a' }}>상태 코드:</div>
+                        <div style={{ color: '#d4d4d8' }}>{station.http_status ? `${station.http_status}` : '-'}</div>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.875rem' }}>
+                        <div style={{ color: '#71717a' }}>응답 시간:</div>
+                        <div style={{ color: '#d4d4d8' }}>{station.elapsed_ms != null ? `${station.elapsed_ms}ms` : '-'}</div>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.875rem' }}>
+                        <div style={{ color: '#71717a' }}>마지막 확인:</div>
+                        <div style={{ color: '#d4d4d8' }}>
+                            {station.checked_at
+                                ? new Date(station.checked_at).toLocaleString()
+                                : "아직 확인되지 않음"}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -262,7 +278,9 @@ function SkeletonCard() {
         <div style={{ borderRadius: '1.5rem', border: '1px solid #27272a', backgroundColor: 'rgba(24,24,27,0.7)', padding: '1.5rem', opacity: 0.7 }}>
             <div style={{ height: '1.5rem', width: '50%', borderRadius: '0.25rem', backgroundColor: '#27272a' }} />
             <div style={{ marginTop: '0.75rem', height: '1rem', width: '100%', borderRadius: '0.25rem', backgroundColor: '#27272a' }} />
-            <div style={{ marginTop: '2rem', height: '1rem', width: '66.666%', borderRadius: '0.25rem', backgroundColor: '#27272a' }} />
+            <div style={{ marginTop: '2rem', height: '1rem', width: '100%', borderRadius: '0.25rem', backgroundColor: '#27272a' }} />
+            <div style={{ marginTop: '0.75rem', height: '1rem', width: '80%', borderRadius: '0.25rem', backgroundColor: '#27272a' }} />
+            <div style={{ marginTop: '0.75rem', height: '1rem', width: '60%', borderRadius: '0.25rem', backgroundColor: '#27272a' }} />
         </div>
     );
 }
