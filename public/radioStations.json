@@ -834,7 +834,7 @@
     {
         "title": "KBS강릉 1라디오",
         "city": "gangwon",
-        "url": "/api/stream?stn=kbs&ch=2radio&city=gangneung",
+        "url": "/api/stream?stn=kbs&ch=1radio&city=gangneung",
         "artwork": "https://padmin.static.kbs.co.kr/live/2021/5/28/1622175309783_252298.jpg"
     },
     {

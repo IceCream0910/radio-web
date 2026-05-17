@@ -121,7 +121,7 @@ export default async function handler(req, res) {
             case 'sfm': // MBC 표준FM
                 switch (city) {
                     case 'busan':
-                        result = "https://brook.bsmbc.com/live/BusanMBC_AM_onairstream.sjqbqd/playlist.m3u8";
+                        result = "https://brook.bsmbc.com/live/BusanMBC_AM_onairstream.sjqbhc/playlist.m3u8";
                         title = '부산MBC';
                         break;
                     case 'ulsan':
@@ -196,7 +196,7 @@ export default async function handler(req, res) {
             case 'fm4u':  // MBC FM4U
                 switch (city) {
                     case 'busan':
-                        result = "https://brook.bsmbc.com/live/BusanMBC_FM_onairstream.sjqbqd/playlist.m3u8";
+                        result = "https://brook.bsmbc.com/live/BusanMBC_FM_onairstream.sjqbhc/playlist.m3u8";
                         title = '부산MBC';
                         break;
                     case 'ulsan':
@@ -437,7 +437,7 @@ export default async function handler(req, res) {
                         title = '포항';
                         break;
                     case 'gwangju':
-                        result = "https://m-aac.cbs.co.kr/gwangju/_definst_/gwangju.stream/playlist.m3u8";
+                        result = "https://pc-aac.cbs.co.kr/gwangju/gwangju.stream/playlist.m3u8";
                         title = '광주';
                         break;
                     case 'jeonnam':
@@ -482,7 +482,7 @@ export default async function handler(req, res) {
                         title = '부산';
                         break;
                     case 'gwangju':
-                        result = "https://m-aac.cbs.co.kr/gwangju939/_definst_/gwangju939.stream/chunklist.m3u8";
+                        result = "https://pc-aac.cbs.co.kr/gwangju939/gwangju939.stream/playlist.m3u8";
                         title = '광주';
                         break;
                     case 'daegu':
@@ -535,7 +535,7 @@ export default async function handler(req, res) {
                 title = 'FEBC 목포극동방송';
                 break;
             case 'jeonnam':
-                result = "https://mlive3.febc.net/live5/jndblive/playlist.m3u8";
+                result = "https://mlive3.febc.net/live/jndblive/playlist.m3u8";
                 title = 'FEBC 전남동부극동방송';
                 break;
             case 'jeonbuk':
@@ -697,7 +697,7 @@ export default async function handler(req, res) {
     if (result !== undefined) {
         const headers = {
             'Content-Type': 'audio/x-scpls',
-            'Access-Control-Allow-Origin': '*', // 모든 URL 허용
+            'Access-Control-Allow-Origin': '*',
             'Location': '/',
         };
 
