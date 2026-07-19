@@ -121,7 +121,7 @@ export default async function handler(req, res) {
             case 'sfm': // MBC 표준FM
                 switch (city) {
                     case 'busan':
-                        result = "https://brook.bsmbc.com/live/BusanMBC_AM_onairstream.sjqbhc/playlist.m3u8";
+                        result = "https://brook.bsmbc.com/live/BusanMBC_AM_onairstream.sjqchd/playlist.m3u8";
                         title = '부산MBC';
                         break;
                     case 'ulsan':
@@ -177,7 +177,7 @@ export default async function handler(req, res) {
                         title = '원주MBC';
                         break;
                     case 'gangneung':
-                        result = "http://123.254.72.24:1935/amlive/livestream/playlist.m3u8";
+                        result = "http://vod.mbceg.co.kr:1935/amlive/livestream/playlist.m3u8";
                         title = 'MBC강원영동';
                         break;
                     case 'jeju':
@@ -196,7 +196,7 @@ export default async function handler(req, res) {
             case 'fm4u':  // MBC FM4U
                 switch (city) {
                     case 'busan':
-                        result = "https://brook.bsmbc.com/live/BusanMBC_FM_onairstream.sjqbhc/playlist.m3u8";
+                        result = "https://brook.bsmbc.com/live/BusanMBC_FM_onairstream.sjqchd/playlist.m3u8";
                         title = '부산MBC';
                         break;
                     case 'ulsan':
