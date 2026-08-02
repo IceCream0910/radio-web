@@ -357,55 +357,55 @@ export default async function handler(req, res) {
         title = 'TBN ';
         switch (city) {
             case 'busan':
-                result = "https://music.tbn.it.kr/busan/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/busan/myStream/playlist.m3u8?DVR";
                 title += '부산교통방송';
                 break;
             case 'ulsan':
-                result = "https://music.tbn.it.kr/ulsan/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/ulsan/myStream/playlist.m3u8?DVR";
                 title += '울산교통방송';
                 break;
             case 'gyeongnam':
-                result = "https://music.tbn.it.kr/gyeongnam/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/gyeongnam/myStream/playlist.m3u8?DVR";
                 title += '경남교통방송';
                 break;
             case 'daegu':
-                result = "https://music.tbn.it.kr/daegu/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/daegu/myStream/playlist.m3u8?DVR";
                 title += '대구교통방송';
                 break;
             case 'gyeongbuk':
-                result = "https://music.tbn.it.kr/kyungbuk/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/kyungbuk/myStream/playlist.m3u8?DVR";
                 title += '경북교통방송';
                 break;
             case 'gwangju':
-                result = "https://music.tbn.it.kr/gwangju/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/gwangju/myStream/playlist.m3u8?DVR";
                 title += '광주교통방송';
                 break;
             case 'jeonbuk':
-                result = "https://music.tbn.it.kr/jeonbuk/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/jeonbuk/myStream/playlist.m3u8?DVR";
                 title += '전북교통방송';
                 break;
             case 'daejeon':
-                result = "https://music.tbn.it.kr/daejeon/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/daejeon/myStream/playlist.m3u8?DVR";
                 title += '대전교통방송';
                 break;
             case 'chungnam':
-                result = "https://music.tbn.it.kr/chungnam/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/chungnam/myStream/playlist.m3u8?DVR";
                 title += '충남교통방송';
                 break;
             case 'chungbuk':
-                result = "https://music.tbn.it.kr/chungbuk/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/chungbuk/myStream/playlist.m3u8?DVR";
                 title += '충북교통방송';
                 break;
             case 'gangwon':
-                result = "https://music.tbn.it.kr/gangwon/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/gangwon/myStream/playlist.m3u8?DVR";
                 title += '강원교통방송';
                 break;
             case 'jeju':
-                result = "https://music.tbn.it.kr/jeju/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/jeju/myStream/playlist.m3u8?DVR";
                 title += '제주교통방송';
                 break;
             default:
-                result = "https://music.tbn.it.kr/gyeongin/myStream/playlist.m3u8?DVR";
+                result = "https://www.tbn.it.kr/gyeongin/myStream/playlist.m3u8?DVR";
                 title += '경인교통방송';
                 break;
         }
