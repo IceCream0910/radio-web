@@ -2856,10 +2856,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@opennextjs/aws@3.10.1":
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/@opennextjs/aws/-/aws-3.10.1.tgz#c7cafd0a8bc6b772f558b447afead1e393a32d0a"
-  integrity sha512-Pn8hLuP3M9EWlsZnS/O7Bm41Nt+lIOEsCaW/QJ3KlmIbtAeixnSj1CS80Z9PlQe/LQCe0GnQ8vGJeOdg5a4iWg==
+"@opennextjs/aws@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@opennextjs/aws/-/aws-4.1.0.tgz#2dfd754660cd460b77bcf1c403c02e8c9187d30a"
+  integrity sha512-GuKkdUbnJhLvtwTiJlytNtWIcSYN3+Dzi+OusUlRgf+Ur7dGoXdzBopd+VFiSdTBduPOvr9lPFDg6BYNjEV3wQ==
   dependencies:
     "@ast-grep/napi" "^0.40.5"
     "@aws-sdk/client-cloudfront" "3.984.0"
@@ -2879,14 +2879,15 @@
     urlpattern-polyfill "^10.1.0"
     yaml "^2.8.1"
 
-"@opennextjs/cloudflare@^1.19.0":
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/@opennextjs/cloudflare/-/cloudflare-1.19.1.tgz#f70615c2178e4109a1bcd57896ec474936e5a63a"
-  integrity sha512-qW6ivDkwDzomX4uBTwIHiSFMvsXjZ2GuVf/GITxGByr8sA3eyx3IMfFjWyaqBHVqcqtJaCiFo8IPxpLHv0jWbg==
+"@opennextjs/cloudflare@^1.20.2":
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/@opennextjs/cloudflare/-/cloudflare-1.20.2.tgz#87df72fd827be38a700b1645c4f58192566ef301"
+  integrity sha512-iFBjABnaDk3be27F5EpxyMLMGPbVnnArFx5I3Y8Rf6BSx5nBV8h0UuJiMKrx3+whDU5ahIy4d8sfbvWvMiF1Kg==
   dependencies:
     "@ast-grep/napi" "^0.40.5"
     "@dotenvx/dotenvx" "1.31.0"
-    "@opennextjs/aws" "3.10.1"
+    "@opennextjs/aws" "4.1.0"
+    ci-info "^4.2.0"
     cloudflare "^4.4.1"
     comment-json "^4.5.1"
     enquirer "^2.4.1"
@@ -3961,6 +3962,11 @@ chalk@^5.6.2:
   version "5.6.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.6.2.tgz#b1238b6e23ea337af71c7f8a295db5af0c158aea"
   integrity sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==
+
+ci-info@^4.2.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-4.4.0.tgz#7d54eff9f54b45b62401c26032696eb59c8bd18c"
+  integrity sha512-77PSwercCZU2Fc4sX94eF8k8Pxte6JAwL4/ICZLFjJLqegs7kCuAsqqj/70NQF6TvDpgFjkubQB2FW2ZZddvQg==
 
 classnames@^2.2.6:
   version "2.3.2"
